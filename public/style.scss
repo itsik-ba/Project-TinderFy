@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(206, 14, 78);
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newdiv{
+ 
+    
+}
+
+.registerForm{
+    color: rgb(18, 159, 225);
+    border: 3px solid black;
+    background-color: pink;
+}
