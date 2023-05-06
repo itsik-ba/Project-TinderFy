@@ -3,7 +3,7 @@ function handleCreatMyForm(){
     try {
        const newDiv = document.createElement("div")
         newDiv.classList.add(".newdiv")
-        const myForm = `<form onsubmit="handleRegister(e)  class="registerForm">
+        const myForm = `<form onsubmit = "handleRegister(e)"  class="registerForm">
         <h2 class="registerForm__h2">Register Here</h2>
         <label class="registerForm__label" for="name">Name:</label>
         <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
@@ -13,12 +13,13 @@ function handleCreatMyForm(){
         <input class="registerForm__input" type="password" name="password" placeholder="enter password">
         <button class="registerForm__btn" type="submit">Register</button>
         </form>`
-        const container = document.querySelector(".container")as HTMLDivElement | null;
+        const container = document.querySelector(".container")as HTMLDivElement;
        if(!container)throw new Error("couldent find main container");
        if(!myForm)throw new Error("couldent find myForm");
        if(!newDiv)throw new Error("couldent find newDiv");
         container.appendChild(newDiv)
         newDiv.innerHTML = myForm
+        
      } catch (error) {
       console.error(error)  
     }
