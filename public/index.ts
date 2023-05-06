@@ -19,10 +19,7 @@ function handleCreatMyForm(){
        if(!newDiv)throw new Error("couldent find newDiv");
         container.appendChild(newDiv)
         newDiv.innerHTML = myForm
-
-
-
-    } catch (error) {
+     } catch (error) {
       console.error(error)  
     }
    
@@ -43,6 +40,6 @@ console.log("form register working")
 
 
 // the sign in function
-function handleSignIn(){
+// function handleSignIn(){
     
-}
+// }

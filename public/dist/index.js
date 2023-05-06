@@ -25,5 +25,5 @@ function handleRegister(e) {
     console.log("form register working");
 }
 // the sign in function
-function handleSignIn() {
-}
+// function handleSignIn(){
+// }
