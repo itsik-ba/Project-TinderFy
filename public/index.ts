@@ -3,7 +3,7 @@ function handleCreatMyForm(){
     try {
        const newDiv = document.createElement("div")
         newDiv.classList.add(".newdiv")
-        const myForm = `<form onsubmit="handleRegister(e)  class="registerForm">
+        const myForm = `<form onsubmit= "handleRegister(event)"  class="registerForm">
         <h2 class="registerForm__h2">Register Here</h2>
         <label class="registerForm__label" for="name">Name:</label>
         <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
@@ -27,7 +27,6 @@ function handleCreatMyForm(){
     }
    
 }
-
 
 
 // the register function
