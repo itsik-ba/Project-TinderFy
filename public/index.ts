@@ -29,7 +29,7 @@ function handleSignIn(){
     console.log("sign in function")
     const container = document.querySelector(".container")as HTMLDivElement | null;
     if(!container)throw new Error("couldent find main container");
-     const signIn = `<form onsubmit= "handleRegister(event)"  class="registerForm">
+     const signIn = `<form onsubmit= "handleLogin(event)"  class="registerForm">
     <h2 class="registerForm__h2">Sign In Here</h2>
     <label class="registerForm__label" for="name">Name:</label>
     <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
@@ -58,7 +58,7 @@ function handleRegister(event: any){
   if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
    
   
-  fetch("/api/users/login", {
+  fetch("/api/users/add-user", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -73,4 +73,34 @@ function handleRegister(event: any){
 } catch (error) {
   console.error(error)
 }
+}
+
+// the sign - in
+
+function handleLogin(event: any){
+  event.preventDefault()
+  try {
+    const name = event.target.elements.name.value;
+    const email = event.target.elements.email.value;
+    const password = event.target.elements.password.value;
+    const userLogin = {name, email, password}
+    if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
+     
+     fetch("/api/users/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userLogin),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+  } catch (error) {
+    console.error(error)
+  }
+
+
 }

@@ -3,7 +3,8 @@ const router = express.Router();
 
 import {
 userLogin, 
-// getUser,
+addNewUser,
+
 
 
 
@@ -12,8 +13,10 @@ userLogin,
 
 
 router
+.post("/add-User", addNewUser)
 .post("/login", userLogin)
-// .get()
+
+
 
 
 

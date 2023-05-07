@@ -36,8 +36,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.userLogin = void 0;
+exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
+exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, email, password, userLogin_1, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, email = _a.email, password = _a.password;
+                return [4 /*yield*/, usersModel_1["default"].create({
+                        name: name, email: email, password: password
+                    })];
+            case 1:
+                userLogin_1 = _b.sent();
+                console.log(userLogin_1);
+                res.status(201).send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _b.sent();
+                console.error(error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, password, userLogInfo;
     return __generator(this, function (_b) {
@@ -57,10 +80,3 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
         }
     });
 }); };
-//   export const getUser = async (req:any, res:any) =>{
-//       try {
-//         const { user } = req.cookies; 
-//       } catch (error) {
-//          console.error(error)
-//       }
-//   }

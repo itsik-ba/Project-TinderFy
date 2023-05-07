@@ -1,6 +1,20 @@
 import UserModel from "./usersModel";
 
 
+export const addNewUser = async (req:any, res:any) => {
+   try {
+     const { name, email, password } = req.body;
+     const userLogin = await UserModel.create({
+      name, email, password })
+      console.log(userLogin)
+     res.status(201).send({ok:true})
+
+     } catch (error) {
+      console.error(error)
+   }  
+
+ }
+
 export const userLogin = async (req:any, res:any) => {
  
       const {name, password} = req.body;
@@ -13,14 +27,17 @@ export const userLogin = async (req:any, res:any) => {
      
          res.status(201).send({ok:true})
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-//   export const getUser = async (req:any, res:any) =>{
-//       try {
-//         const { user } = req.cookies; 
-        
-
-
-//       } catch (error) {
-//          console.error(error)
-//       }
-//   }
