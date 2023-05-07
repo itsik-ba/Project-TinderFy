@@ -14,19 +14,25 @@ export const addNewUser = async (req:any, res:any) => {
    }  
 
  }
+ 
 
 export const userLogin = async (req:any, res:any) => {
- 
-      const {name, password} = req.body;
-       console.log(req.body)
+         try {
+          const {name, password} = req.body;
+          const userLogin = await UserModel.findOne({name, password})
+          
+          if(!name)throw new Error ("cant find user name")
+          if(!password)throw new Error ("cant find user password")
+          console.log(userLogin)
+          if(userLogin)
+          res.cookie("user", userLogin._id,{
+            maxAge:9000000, httpOnly:true})
+            res.status(201).send({ok:true})
 
-       const userLogInfo = await UserModel.findOne({name, password})
-       if(userLogInfo)
-       res.cookie("user", userLogInfo._id,{
-         maxAge:9000000, httpOnly:true})
-     
-         res.status(201).send({ok:true})
-        }
+         } catch (error) {
+          console.error(error)
+         }
+   }
 
 
 

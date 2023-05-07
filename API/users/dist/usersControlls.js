@@ -62,21 +62,31 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, userLogInfo;
+    var _a, name, password, userLogin_2, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
+                _b.trys.push([0, 2, , 3]);
                 _a = req.body, name = _a.name, password = _a.password;
-                console.log(req.body);
                 return [4 /*yield*/, usersModel_1["default"].findOne({ name: name, password: password })];
             case 1:
-                userLogInfo = _b.sent();
-                if (userLogInfo)
-                    res.cookie("user", userLogInfo._id, {
+                userLogin_2 = _b.sent();
+                if (!name)
+                    throw new Error("cant find user name");
+                if (!password)
+                    throw new Error("cant find user password");
+                console.log(userLogin_2);
+                if (userLogin_2)
+                    res.cookie("user", userLogin_2._id, {
                         maxAge: 9000000, httpOnly: true
                     });
                 res.status(201).send({ ok: true });
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _b.sent();
+                console.error(error_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

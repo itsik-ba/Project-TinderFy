@@ -33,8 +33,12 @@ function handleRegister(event) {
         var email = event.target.elements.email.value;
         var password = event.target.elements.password.value;
         var userLogin = { name: name, email: email, password: password };
-        if (!userLogin)
-            throw new Error("cant find userLogin information(name , email , password) etc");
+        if (!name)
+            throw new Error("cant find user name");
+        if (!email)
+            throw new Error("cant find user email");
+        if (!password)
+            throw new Error("cant find user password");
         fetch("/api/users/add-user", {
             method: "POST",
             headers: {
@@ -47,7 +51,6 @@ function handleRegister(event) {
             .then(function (data) {
             console.log(data);
         });
-        window.location.href = "app.html";
     }
     catch (error) {
         console.error(error);
@@ -60,8 +63,11 @@ function handleLogin(event) {
         var name = event.target.elements.name.value;
         var password = event.target.elements.password.value;
         var userLogin = { name: name, password: password };
-        if (!userLogin)
-            throw new Error("cant find userLogin information(name , email , password) etc");
+        if (!name)
+            throw new Error("cant find user name");
+        if (!password)
+            throw new Error("cant find user password");
+        console.log(userLogin);
         fetch("/api/users/login", {
             method: "POST",
             headers: {
@@ -74,9 +80,9 @@ function handleLogin(event) {
             .then(function (data) {
             console.log(data);
         });
-        window.location.href = "app.html";
     }
     catch (error) {
         console.error(error);
     }
+    console.log("test");
 }

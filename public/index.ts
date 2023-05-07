@@ -55,10 +55,11 @@ function handleRegister(event: any){
   const email = event.target.elements.email.value;
   const password = event.target.elements.password.value;
   const userLogin = {name, email, password}
-  if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
+  if(!name)throw new Error("cant find user name")
+  if(!email)throw new Error("cant find user email")
+  if(!password)throw new Error("cant find user password")
    
-  
-  fetch("/api/users/add-user", {
+   fetch("/api/users/add-user", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -70,10 +71,10 @@ function handleRegister(event: any){
     .then((data) => {
       console.log(data);
     })
-    window.location.href = "app.html"
-} catch (error) {
+   } catch (error) {
   console.error(error)
 }
+     
 }
 
 // the sign - in
@@ -84,8 +85,9 @@ function handleLogin(event: any){
     const name = event.target.elements.name.value;
     const password = event.target.elements.password.value;
     const userLogin = {name, password}
-    if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
-     
+    if(!name)throw new Error("cant find user name")
+    if(!password)throw new Error("cant find user password")
+     console.log(userLogin)
      fetch("/api/users/login", {
       method: "POST",
       headers: {
@@ -98,10 +100,9 @@ function handleLogin(event: any){
       .then((data) => {
         console.log(data);
       })
-      window.location.href = "app.html"
+     
   } catch (error) {
     console.error(error)
   }
- 
-
+    console.log("test")
 }
