@@ -29,7 +29,7 @@ function handleSignIn(){
     console.log("sign in function")
     const container = document.querySelector(".container")as HTMLDivElement | null;
     if(!container)throw new Error("couldent find main container");
-     const signIn = `<form onsubmit= "handleLogin(event)"  class="registerForm">
+     const signIn = `<form onsubmit= "handleLogin(event)" class="registerForm">
     <h2 class="registerForm__h2">Sign In Here</h2>
     <label class="registerForm__label" for="name">Name:</label>
     <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
@@ -70,6 +70,7 @@ function handleRegister(event: any){
     .then((data) => {
       console.log(data);
     })
+    window.location.href = "app.html"
 } catch (error) {
   console.error(error)
 }
@@ -81,9 +82,8 @@ function handleLogin(event: any){
   event.preventDefault()
   try {
     const name = event.target.elements.name.value;
-    const email = event.target.elements.email.value;
     const password = event.target.elements.password.value;
-    const userLogin = {name, email, password}
+    const userLogin = {name, password}
     if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
      
      fetch("/api/users/login", {
@@ -98,9 +98,10 @@ function handleLogin(event: any){
       .then((data) => {
         console.log(data);
       })
+      window.location.href = "app.html"
   } catch (error) {
     console.error(error)
   }
-
+ 
 
 }

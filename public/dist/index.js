@@ -18,7 +18,7 @@ function handleSignIn() {
         var container = document.querySelector(".container");
         if (!container)
             throw new Error("couldent find main container");
-        var signIn = "<form onsubmit= \"handleLogin(event)\"  class=\"registerForm\">\n    <h2 class=\"registerForm__h2\">Sign In Here</h2>\n    <label class=\"registerForm__label\" for=\"name\">Name:</label>\n    <input class=\"registerForm__input\"  type=\"text\" name=\"name\" placeholder=\"enter name\">\n    <label class=\"registerForm__label\"  for=\"password\">Password:</label>\n    <input class=\"registerForm__input\" type=\"password\" name=\"password\" placeholder=\"enter password\">\n    <button class=\"registerForm__btn\" type=\"submit\">sign-in</button>\n    </form>\n    <div class=\"moveToRegister\"><button class=\"moveToRegister__btn\" onclick=\"handleCreatMyForm()\">go register</button></div>\n    ";
+        var signIn = "<form onsubmit= \"handleLogin(event)\" class=\"registerForm\">\n    <h2 class=\"registerForm__h2\">Sign In Here</h2>\n    <label class=\"registerForm__label\" for=\"name\">Name:</label>\n    <input class=\"registerForm__input\"  type=\"text\" name=\"name\" placeholder=\"enter name\">\n    <label class=\"registerForm__label\"  for=\"password\">Password:</label>\n    <input class=\"registerForm__input\" type=\"password\" name=\"password\" placeholder=\"enter password\">\n    <button class=\"registerForm__btn\" type=\"submit\">sign-in</button>\n    </form>\n    <div class=\"moveToRegister\"><button class=\"moveToRegister__btn\" onclick=\"handleCreatMyForm()\">go register</button></div>\n    ";
         container.innerHTML = signIn;
     }
     catch (error) {
@@ -47,6 +47,7 @@ function handleRegister(event) {
             .then(function (data) {
             console.log(data);
         });
+        window.location.href = "app.html";
     }
     catch (error) {
         console.error(error);
@@ -57,9 +58,8 @@ function handleLogin(event) {
     event.preventDefault();
     try {
         var name = event.target.elements.name.value;
-        var email = event.target.elements.email.value;
         var password = event.target.elements.password.value;
-        var userLogin = { name: name, email: email, password: password };
+        var userLogin = { name: name, password: password };
         if (!userLogin)
             throw new Error("cant find userLogin information(name , email , password) etc");
         fetch("/api/users/login", {
@@ -74,6 +74,7 @@ function handleLogin(event) {
             .then(function (data) {
             console.log(data);
         });
+        window.location.href = "app.html";
     }
     catch (error) {
         console.error(error);
