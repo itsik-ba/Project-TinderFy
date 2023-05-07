@@ -30,9 +30,9 @@ function handleCreatMyForm(){
 
 
 // the register function
-function handleRegister(e: any){
-  e.preventDefault()
-  console.log(e)
+function handleRegister(event: any){
+  event.preventDefault()
+  console.log(event)
 console.log("form register working")
 
 
