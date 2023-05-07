@@ -59,6 +59,7 @@ function handleRegister(event: any){
   if(!email)throw new Error("cant find user email")
   if(!password)throw new Error("cant find user password")
    
+  handleSignIn();
    fetch("/api/users/add-user", {
     method: "POST",
     headers: {
@@ -70,7 +71,7 @@ function handleRegister(event: any){
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      
+
     })
    } catch (error) {
   console.error(error)
@@ -89,6 +90,7 @@ function handleLogin(event: any){
     if(!name)throw new Error("cant find user name")
     if(!password)throw new Error("cant find user password")
      console.log(userLogin)
+
      fetch("/api/users/login", {
       method: "POST",
       headers: {
@@ -100,6 +102,8 @@ function handleLogin(event: any){
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        
+        window.location.href = "app.html"
       })
      
   } catch (error) {

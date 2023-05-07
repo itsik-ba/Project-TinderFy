@@ -39,6 +39,7 @@ function handleRegister(event) {
             throw new Error("cant find user email");
         if (!password)
             throw new Error("cant find user password");
+        handleSignIn();
         fetch("/api/users/add-user", {
             method: "POST",
             headers: {
@@ -79,6 +80,7 @@ function handleLogin(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            window.location.href = "app.html";
         });
     }
     catch (error) {

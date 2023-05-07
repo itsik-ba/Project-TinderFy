@@ -77,7 +77,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                     throw new Error("cant find user password");
                 console.log(userLogin_2);
                 if (userLogin_2)
-                    res.cookie("user", userLogin_2._id, {
+                    res.cookie("" + name, userLogin_2._id, {
                         maxAge: 9000000, httpOnly: true
                     });
                 res.status(201).send({ ok: true });
