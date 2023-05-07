@@ -47,11 +47,30 @@ function handleSignIn(){
   
 }
 
-
 // the register function
 function handleRegister(event: any){
   event.preventDefault()
- console.log("itsik")
-
-
+ try {
+  const name = event.target.elements.name.value;
+  const email = event.target.elements.email.value;
+  const password = event.target.elements.password.value;
+  const userLogin = {name, email, password}
+  if(!userLogin)throw new Error("cant find userLogin information(name , email , password) etc")
+   
+  
+  fetch("/api/users/login", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userLogin),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+} catch (error) {
+  console.error(error)
+}
 }

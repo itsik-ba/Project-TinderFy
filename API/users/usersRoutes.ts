@@ -2,7 +2,8 @@ import express from "express";
 const router = express.Router();
 
 import {
-
+userLogin, 
+// getUser,
 
 
 
@@ -11,7 +12,8 @@ import {
 
 
 router
-
+.post("/login", userLogin)
+// .get()
 
 
 

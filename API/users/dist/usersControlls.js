@@ -37,10 +37,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.userLogin = void 0;
+var usersModel_1 = require("./usersModel");
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password;
+    var _a, name, password, userLogInfo;
     return __generator(this, function (_b) {
-        _a = req.body, name = _a.name, password = _a.password;
-        return [2 /*return*/];
+        switch (_b.label) {
+            case 0:
+                _a = req.body, name = _a.name, password = _a.password;
+                console.log(req.body);
+                return [4 /*yield*/, usersModel_1["default"].findOne({ name: name, password: password })];
+            case 1:
+                userLogInfo = _b.sent();
+                if (userLogInfo)
+                    res.cookie("user", userLogInfo._id, {
+                        maxAge: 9000000, httpOnly: true
+                    });
+                res.status(201).send({ ok: true });
+                return [2 /*return*/];
+        }
     });
 }); };
+//   export const getUser = async (req:any, res:any) =>{
+//       try {
+//         const { user } = req.cookies; 
+//       } catch (error) {
+//          console.error(error)
+//       }
+//   }
