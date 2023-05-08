@@ -1,7 +1,7 @@
 // creat the form for register + option to change to sign in only
 function handleCreatMyForm() {
     try {
-        var myForm = "<form onsubmit= \"handleRegister(event)\"  class=\"registerForm\">\n        <h2 class=\"registerForm__h2\">Register Here</h2>\n        <label class=\"registerForm__label\" for=\"name\">Name:</label>\n        <input class=\"registerForm__input\"  type=\"text\" name=\"name\" placeholder=\"enter name\">\n        <label class=\"registerForm__label\"  for=\"email\">Email:</label>\n        <input class=\"registerForm__input\" type=\"email\" name=\"email\" placeholder=\"enter email\">\n        <label class=\"registerForm__label\"  for=\"password\">Password:</label>\n        <input class=\"registerForm__input\" type=\"password\" name=\"password\" placeholder=\"enter password\">\n        <button class=\"registerForm__btn\" type=\"submit\">Register</button>\n        </form>\n        <div class=\"moveToSignIn\"><button class=\"moveToSignIn__btn\" onclick=\"handleSignIn()\">sign-in</button></div>\n        ";
+        var myForm = "<form onsubmit= \"handleRegister(event)\" class=\"registerForm\">\n        <h2 class=\"registerForm__h2\">Register Here</h2>\n        <label class=\"registerForm__label\" for=\"name\">Name:</label>\n        <input class=\"registerForm__input\"  type=\"text\" name=\"name\" placeholder=\"enter name\">\n        <label class=\"registerForm__label\"  for=\"email\">Email:</label>\n        <input class=\"registerForm__input\" type=\"email\" name=\"email\" placeholder=\"enter email\">\n        <label class=\"registerForm__label\"  for=\"password\">Password:</label>\n        <input class=\"registerForm__input\" type=\"password\" name=\"password\" placeholder=\"enter password\">\n        <button class=\"registerForm__btn\" type=\"submit\">Register</button>\n        </form>\n        <div class=\"moveToSignIn\"><button class=\"moveToSignIn__btn\" onclick=\"handleSignIn()\">sign-in</button></div>\n        ";
         var container = document.querySelector(".container");
         if (!container)
             throw new Error("couldent find main container");
@@ -68,7 +68,6 @@ function handleLogin(event) {
             throw new Error("cant find user name");
         if (!password)
             throw new Error("cant find user password");
-        console.log(userLogin);
         fetch("/api/users/login", {
             method: "POST",
             headers: {
@@ -80,7 +79,6 @@ function handleLogin(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "app.html";
         });
     }
     catch (error) {

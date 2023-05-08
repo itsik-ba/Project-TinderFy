@@ -1,7 +1,7 @@
 // creat the form for register + option to change to sign in only
 function handleCreatMyForm(){
     try {
-        const myForm = `<form onsubmit= "handleRegister(event)"  class="registerForm">
+        const myForm = `<form onsubmit= "handleRegister(event)" class="registerForm">
         <h2 class="registerForm__h2">Register Here</h2>
         <label class="registerForm__label" for="name">Name:</label>
         <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
@@ -15,7 +15,7 @@ function handleCreatMyForm(){
         `
        const container = document.querySelector(".container")as HTMLDivElement | null;
        if(!container)throw new Error("couldent find main container");
-      container.innerHTML = myForm
+       container.innerHTML = myForm
         
       } catch (error) {
       console.error(error)  
@@ -89,7 +89,7 @@ function handleLogin(event: any){
     const userLogin = {name, password}
     if(!name)throw new Error("cant find user name")
     if(!password)throw new Error("cant find user password")
-     console.log(userLogin)
+     
 
      fetch("/api/users/login", {
       method: "POST",
@@ -103,8 +103,7 @@ function handleLogin(event: any){
       .then((data) => {
         console.log(data);
         
-        window.location.href = "app.html"
-      })
+    })
      
   } catch (error) {
     console.error(error)

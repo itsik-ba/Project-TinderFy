@@ -71,15 +71,11 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                 return [4 /*yield*/, usersModel_1["default"].findOne({ name: name, password: password })];
             case 1:
                 userLogin_2 = _b.sent();
-                if (!name)
-                    throw new Error("cant find user name");
-                if (!password)
-                    throw new Error("cant find user password");
-                console.log(userLogin_2);
-                if (userLogin_2)
-                    res.cookie("" + name, userLogin_2._id, {
-                        maxAge: 9000000, httpOnly: true
-                    });
+                if (!userLogin_2)
+                    throw new Error("user name or password is not Valid");
+                res.cookie("" + name, userLogin_2._id, {
+                    maxAge: 9000000, httpOnly: true
+                });
                 res.status(201).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:

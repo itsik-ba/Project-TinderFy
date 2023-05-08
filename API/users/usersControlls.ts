@@ -19,13 +19,10 @@ export const addNewUser = async (req:any, res:any) => {
 export const userLogin = async (req:any, res:any) => {
          try {
           const {name, password} = req.body;
-          const userLogin = await UserModel.findOne({name, password})
+          const userLogin = await UserModel.findOne({ name, password })
+          if(!userLogin)throw new Error ("user name or password is not Valid")
           
-          if(!name)throw new Error ("cant find user name")
-          if(!password)throw new Error ("cant find user password")
-          console.log(userLogin)
-          if(userLogin)
-          res.cookie(`${name}`, userLogin._id,{
+            res.cookie(`${name}`, userLogin._id,{
             maxAge:9000000, httpOnly:true})
             res.status(201).send({ok:true})
 
