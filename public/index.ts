@@ -26,8 +26,7 @@ function handleCreatMyForm(){
 // the sign in function
 function handleSignIn(){
   try {
-    console.log("sign in function")
-    const container = document.querySelector(".container")as HTMLDivElement | null;
+      const container = document.querySelector(".container")as HTMLDivElement | null;
     if(!container)throw new Error("couldent find main container");
      const signIn = `<form onsubmit= "handleLogin(event)" class="registerForm">
     <h2 class="registerForm__h2">Sign In Here</h2>
@@ -59,8 +58,7 @@ function handleRegister(event: any){
   if(!email)throw new Error("cant find user email")
   if(!password)throw new Error("cant find user password")
    
-  handleSignIn();
-   fetch("/api/users/add-user", {
+  fetch("/api/users/add-user", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -71,7 +69,7 @@ function handleRegister(event: any){
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-
+      handleSignIn();
     })
    } catch (error) {
   console.error(error)
@@ -89,8 +87,7 @@ function handleLogin(event: any){
     const userLogin = {name, password}
     if(!name)throw new Error("cant find user name")
     if(!password)throw new Error("cant find user password")
-     
-
+       
      fetch("/api/users/login", {
       method: "POST",
       headers: {
@@ -108,5 +105,5 @@ function handleLogin(event: any){
   } catch (error) {
     console.error(error)
   }
-    console.log("test")
+    
 }

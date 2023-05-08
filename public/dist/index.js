@@ -14,7 +14,6 @@ function handleCreatMyForm() {
 // the sign in function
 function handleSignIn() {
     try {
-        console.log("sign in function");
         var container = document.querySelector(".container");
         if (!container)
             throw new Error("couldent find main container");
@@ -39,7 +38,6 @@ function handleRegister(event) {
             throw new Error("cant find user email");
         if (!password)
             throw new Error("cant find user password");
-        handleSignIn();
         fetch("/api/users/add-user", {
             method: "POST",
             headers: {
@@ -51,6 +49,7 @@ function handleRegister(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            handleSignIn();
         });
     }
     catch (error) {
@@ -84,5 +83,4 @@ function handleLogin(event) {
     catch (error) {
         console.error(error);
     }
-    console.log("test");
 }

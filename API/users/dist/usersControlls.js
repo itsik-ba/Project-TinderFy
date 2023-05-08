@@ -38,6 +38,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
+var jwt = require("jwt-simple");
+var secret = process.env.JWT_SECRET;
 exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, email, password, userLogin_1, error_1;
     return __generator(this, function (_b) {
@@ -62,7 +64,7 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, userLogin_2, error_2;
+    var _a, name, password, userLogin_2, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -73,7 +75,11 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                 userLogin_2 = _b.sent();
                 if (!userLogin_2)
                     throw new Error("user name or password is not Valid");
-                res.cookie("" + name, userLogin_2._id, {
+                if (!secret)
+                    throw new Error("cant find jwt secret");
+                token = jwt.encode(userLogin_2._id, secret);
+                console.log(token);
+                res.cookie("" + name, token, {
                     maxAge: 9000000, httpOnly: true
                 });
                 res.status(201).send({ ok: true });
