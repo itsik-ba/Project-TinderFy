@@ -58,10 +58,9 @@ function creatProfile(){
 
 function myPreferences(){
     try {
-        
         const userProfile = document.querySelector(".userProfile")as HTMLDivElement|null
         const myPreferences = `
-        <div class="main">
+        <div>
         <h2>Now we will ask you about your preferences</h2>
         <h3>Your preferences will affect the adjustments you receive</h3>
         <form>
@@ -129,7 +128,7 @@ function myPreferences(){
     </div>
     `
          if(userProfile)
-         userProfile.innerText = myPreferences;
+         userProfile.innerHTML = myPreferences;
     } catch (error) {
         console.error(error)
     }
