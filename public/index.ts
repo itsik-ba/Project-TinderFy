@@ -103,7 +103,7 @@ function handleLogin(event: any){
       .then((data) => {
         console.log(data);
         
-        window.location.href = "app.html"
+       
       })
      
   } catch (error) {
