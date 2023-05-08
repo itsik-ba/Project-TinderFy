@@ -69,7 +69,7 @@ function handleRegister(event: any){
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      handleSignIn();
+     window.location.href = "app.html"
     })
    } catch (error) {
   console.error(error)

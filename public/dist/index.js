@@ -49,7 +49,7 @@ function handleRegister(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            handleSignIn();
+            window.location.href = "app.html";
         });
     }
     catch (error) {

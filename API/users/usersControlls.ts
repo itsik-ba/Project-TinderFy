@@ -1,5 +1,5 @@
 import UserModel from "./usersModel";
-const jwt = require("jwt-simple")
+const jwt:any = require("jwt-simple");
 const secret:string | undefined = process.env.JWT_SECRET;
 
 export const addNewUser = async (req:any, res:any) => {
