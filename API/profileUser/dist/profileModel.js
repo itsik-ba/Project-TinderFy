@@ -5,12 +5,12 @@ var mongoose_1 = require("mongoose");
 exports.profileSchema = new mongoose_1.Schema({
     fullname: String,
     age: Number,
-    //   gender: {
-    //     layout: 'checkbox'
-    //   },
+    gender: String,
     country: String,
     height: Number,
     weight: Number,
-    yourself: String
+    yourself: String,
+    textarea: String,
+    intrested: String
 });
 exports["default"] = exports.profileSchema;
