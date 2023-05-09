@@ -1,4 +1,5 @@
 import UserModel from "./usersModel";
+
 const jwt:any = require("jwt-simple");
 const secret:string | undefined = process.env.JWT_SECRET;
 
@@ -24,7 +25,7 @@ export const userLogin = async (req:any, res:any) => {
           if(!secret)throw new Error("cant find jwt secret")
           const token = jwt.encode(userLogin._id, secret)
             console.log(token)  
-            res.cookie(`${name}`, token,{
+            res.cookie(`user`, token,{
             maxAge:9000000, httpOnly:true})
             res.status(201).send({ok:true})
 

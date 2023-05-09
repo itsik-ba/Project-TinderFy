@@ -1,6 +1,7 @@
 // creat the form for register + option to change to sign in only
 function handleCreatMyForm(){
     try {
+      
         const myForm = `<form onsubmit= "handleRegister(event)" class="registerForm">
         <h2 class="registerForm__h2">Register Here</h2>
         <label class="registerForm__label" for="name">Name:</label>

@@ -79,7 +79,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                     throw new Error("cant find jwt secret");
                 token = jwt.encode(userLogin_2._id, secret);
                 console.log(token);
-                res.cookie("" + name, token, {
+                res.cookie("user", token, {
                     maxAge: 9000000, httpOnly: true
                 });
                 res.status(201).send({ ok: true });
