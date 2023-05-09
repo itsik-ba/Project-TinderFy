@@ -78,6 +78,7 @@ function handleLogin(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            window.location.href = "main.html";
         });
     }
     catch (error) {

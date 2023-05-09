@@ -16,9 +16,9 @@ function creatProfile(){
          <br>
          <label class="label" for="gender">whats your gender:</label>
          <br>
-         <input class="inputRadio" type="radio" name="genderMan">man
-         <input class="inputRadio" type="radio" name="genderWomen">women
-         <input class="inputRadio" type="radio" name="genderOther">other
+         <input class="inputRadio" type="radio" name="gender" value="man">man
+         <input class="inputRadio" type="radio" name="gender" value="women">women
+         <input class="inputRadio" type="radio" name="gender" value="other">other
          <br>
            <label class="label" for="live">where do you live:</label>
            <br>
@@ -38,9 +38,9 @@ function creatProfile(){
               <br>
               <label class="label" for="intrested">intrested in:</label>
               <br>
-              <input class="inputRadio" type="radio" name="intrestedMan">man
-              <input class="inputRadio" type="radio" name="intrestedWomen">women
-              <input class="inputRadio" type="radio" name="intrestedBoth">both
+              <input class="inputRadio" type="radio" name="intrested" value="man">man
+              <input class="inputRadio" type="radio" name="intrested" value="women">women
+              <input class="inputRadio" type="radio" name="intrested" value="both">both
               <br>
               <button id="btnCreatProfile" type="submit">creat-profile</button>
         </form>
@@ -124,6 +124,7 @@ function myPreferences(){
           <input type="radio" name="prefferdReligiousBeliefSecular">secular
           <input type="radio" name="prefferdReligiousBeliefTraditional">traditional
           <br>
+          <button type="submit">creat</button>
         </form>
     </div>
     `
