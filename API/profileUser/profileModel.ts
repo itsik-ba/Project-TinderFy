@@ -9,13 +9,9 @@ export const profileSchema = new Schema({
       weight: Number,
       yourself: String,
       textarea: String,
-     intrested: String,
+      intrested: String,
      
     });
-
-
-
-
 
 
 
