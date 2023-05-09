@@ -12,7 +12,7 @@ function creatProfile(){
          <br>
          <label class="label" for="age">what is your age:</label> 
          <br>
-         <input class="input" type="date" name="age">  
+         <input class="input" type="number" name="age">  
          <br>
          <label class="label" for="gender">whats your gender:</label>
          <br>
@@ -32,7 +32,9 @@ function creatProfile(){
             <br>
             <input class="input" type="number" name="weight">
             <br>
-              <label class="label" for="yourself">tell us about yourself:</label>
+
+            
+              <label class="label" for="yourself">few words about yourself:</label>
               <br>
               <textarea name="yourself" id="" cols="30" rows="10"></textarea>
               <br>
@@ -46,7 +48,6 @@ function creatProfile(){
         </form>
         </div>
         `
-        
         if(userProfile)
         userProfile.innerHTML = profileHtml
 
@@ -66,9 +67,9 @@ function myPreferences(){
         <form>
           <label for="prefferdHeight">prefferd height:</label>
           <br>
-          <input type="radio" name="prefferdHeightTall">very tall - 1.90+
-          <input type="radio" name="prefferdHeightAverage">average height -  1.66 / 1.76 
-          <input type="radio" name="prefferdHeightShort">Short - 1.50 / 1.65
+          <input type="radio" name="Height" value="veryTall">very tall - 1.90+
+          <input type="radio" name="Height" value="avarage">average height -  1.66 / 1.76 
+          <input type="radio" name="Height">Short - 1.50 / 1.65
           <br>
           <label for="prefferdBody">prefferd body:</label>
           <br>
