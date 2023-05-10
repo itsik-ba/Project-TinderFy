@@ -5,7 +5,7 @@ function creatProfile(){
         <div class="main">
         <h2 class="main__h2">welcome <span class="main__h2__span"></span></h2>
         <h3 class="main__h3">lets create your profile</h3>
-        <form class="profileForm" onsubmit="myPreferences()">
+        <form class="profileForm" onsubmit="createMyCard(e)">
          <label for="fnam" class="label">full name:</label>
          <br>
          <input class="input" type="text" name="fname">

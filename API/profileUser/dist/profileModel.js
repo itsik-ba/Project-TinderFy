@@ -6,11 +6,12 @@ exports.profileSchema = new mongoose_1.Schema({
     fullname: String,
     age: Number,
     gender: String,
-    country: String,
+    location: String,
     height: Number,
     weight: Number,
-    yourself: String,
-    textarea: String,
-    intrested: String
+    kids: String || undefined,
+    intrested: String,
+    info: String
 });
-exports["default"] = exports.profileSchema;
+var NewCard = mongoose_1["default"].model("newProfile", exports.profileSchema);
+exports["default"] = NewCard;

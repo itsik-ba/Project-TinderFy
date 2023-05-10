@@ -4,17 +4,15 @@ export const profileSchema = new Schema({
       fullname: String,
       age: Number,
       gender: String,
-      country: String,
+      location: String,
       height: Number,
       weight: Number,
-      yourself: String,
-      textarea: String,
+      kids: String || undefined,
       intrested: String,
-     
+      info: String,
     });
 
+    const NewCard = mongoose.model("newProfile", profileSchema);
 
 
-
-
-export default profileSchema
+export default NewCard;

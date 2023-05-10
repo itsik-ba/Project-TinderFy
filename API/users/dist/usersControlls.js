@@ -36,8 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.userLogin = exports.addNewUser = void 0;
+exports.newProfile = exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
+var profileModel_1 = require("../profileUser/profileModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
 exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -79,7 +80,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                     throw new Error("cant find jwt secret");
                 token = jwt.encode(userLogin_2._id, secret);
                 console.log(token);
-                res.cookie("user", token, {
+                res.cookie("" + name, token, {
                     maxAge: 9000000, httpOnly: true
                 });
                 res.status(201).send({ ok: true });
@@ -87,6 +88,29 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
             case 2:
                 error_2 = _b.sent();
                 console.error(error_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.newProfile = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, age, gender, location, height, weight, kids, intrested, info, userProfile, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, age = _a.age, gender = _a.gender, location = _a.location, height = _a.height, weight = _a.weight, kids = _a.kids, intrested = _a.intrested, info = _a.info;
+                return [4 /*yield*/, profileModel_1["default"].create({
+                        name: name, age: age, gender: gender, location: location, height: height, weight: weight, kids: kids, intrested: intrested, info: info
+                    })];
+            case 1:
+                userProfile = _b.sent();
+                console.log(userProfile);
+                res.status(201).send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

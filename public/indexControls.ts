@@ -22,7 +22,7 @@ function handleRegister(event: any){
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      //  window.location.href = "app.html"
+        
       })
      } catch (error) {
     console.error(error)
@@ -35,7 +35,6 @@ function handleRegister(event: any){
   // the sign - in
 
 function handleLogin(event: any){
-
     event.preventDefault()
     try {
       const name = event.target.elements.name.value;
@@ -56,7 +55,7 @@ function handleLogin(event: any){
         .then((data) => {
           console.log(data);
           // window.location.href = "main.html"
-          console.log("sdfdsfsdfsdfsdfsf")
+          
       })
        
     } catch (error) {

@@ -1,4 +1,5 @@
 import UserModel from "./usersModel";
+import NewCard from "../profileUser/profileModel";
 
 const jwt:any = require("jwt-simple");
 const secret:string | undefined = process.env.JWT_SECRET;
@@ -16,7 +17,7 @@ export const addNewUser = async (req:any, res:any) => {
    }  
 
  }
- 
+
 export const userLogin = async (req:any, res:any) => {
          try {
           const {name, password} = req.body;
@@ -25,7 +26,7 @@ export const userLogin = async (req:any, res:any) => {
           if(!secret)throw new Error("cant find jwt secret")
           const token = jwt.encode(userLogin._id, secret)
             console.log(token)  
-            res.cookie(`user`, token,{
+            res.cookie(`${name}`, token,{
             maxAge:9000000, httpOnly:true})
             res.status(201).send({ok:true})
 
@@ -34,7 +35,19 @@ export const userLogin = async (req:any, res:any) => {
          }
    }
 
-
+export const newProfile = async (req:any, res:any)=>{
+      try {
+        const { name, age, gender, location, height, weight, kids, intrested, info } = req.body;
+      const userProfile = await NewCard.create({
+       name, age, gender, location, height, weight, kids, intrested, info})
+       console.log(userProfile)
+      res.status(201).send({ok:true})
+  
+      } catch (error) {
+        console.error(error)
+      }
+     
+    }
 
 
 
