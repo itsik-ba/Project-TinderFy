@@ -54,7 +54,8 @@ function handleLogin(event: any){
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          // window.location.href = "main.html"
+          window.location.href = "app.html"
+         
           
       })
        

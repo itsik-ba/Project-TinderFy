@@ -1,3 +1,4 @@
+
 function creatProfile(){
     try {
         const userProfile = document.querySelector(".userProfile")as HTMLDivElement|null
@@ -5,10 +6,10 @@ function creatProfile(){
         <div class="main">
         <h2 class="main__h2">welcome <span class="main__h2__span"></span></h2>
         <h3 class="main__h3">lets create your profile</h3>
-        <form class="profileForm" onsubmit="createMyCard(e)">
+        <form class="profileForm" onsubmit="createMyCard(event)">
          <label for="fnam" class="label">full name:</label>
          <br>
-         <input class="input" type="text" name="fname">
+         <input class="input" type="text" name="name">
          <br>
          <label class="label" for="age">what is your age:</label> 
          <br>
@@ -45,7 +46,7 @@ function creatProfile(){
             <br>
             <label class="label" for="yourself">few words about yourself:</label>
               <br>
-              <textarea name="yourself" id="" cols="30" rows="10"></textarea>
+              <textarea name="info" id="" cols="30" rows="10"></textarea>
               <br>
               <button id="btnCreatProfile" type="submit">creat-profile</button>
         </form>
