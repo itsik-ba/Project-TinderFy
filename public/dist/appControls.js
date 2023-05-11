@@ -1,7 +1,6 @@
 // fetch all the info from the form 
 function createMyCard(event) {
     event.preventDefault();
-    console.log(event);
     try {
         var name = event.target.elements.name.value;
         var age = event.target.elements.age.value;
@@ -15,7 +14,7 @@ function createMyCard(event) {
         var userCard = { name: name, age: age, gender: gender, live: live, height: height, weight: weight, kids: kids, intrested: intrested, info: info };
         if (!userCard)
             throw new Error("cant find userCard Value's");
-        fetch("/api/users/add-user/newProfile", {
+        fetch("/api/users/newProfile", {
             method: "POST",
             headers: {
                 Accept: "application/json",

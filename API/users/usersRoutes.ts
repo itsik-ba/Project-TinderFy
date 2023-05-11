@@ -13,7 +13,7 @@ renderHome,
 router
 .get("/", renderHome)
 .post("/add-User", addNewUser)
-.post("add-User/newProfile", newProfile)
+.post("/newProfile", newProfile)
 .post("/login", userLogin)
 
 
