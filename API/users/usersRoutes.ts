@@ -13,6 +13,7 @@ newProfile,
 router
 .post("/add-User", addNewUser)
 .post("add-User/newProfile", newProfile)
+// .get()
 .post("/login", userLogin)
 
 
