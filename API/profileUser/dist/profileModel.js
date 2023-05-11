@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.profileSchema = void 0;
 var mongoose_1 = require("mongoose");
 exports.profileSchema = new mongoose_1.Schema({
-    fullname: String,
+    name: String,
     age: Number,
     gender: String,
     location: String,

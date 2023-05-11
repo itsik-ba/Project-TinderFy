@@ -7,13 +7,13 @@ try {
     const name = event.target.elements.name.value;
     const age = event.target.elements.age.value;
     const gender = event.target.elements.gender.value;
-    const live = event.target.elements.live.value;
+    const location = event.target.elements.location.value;
     const height = event.target.elements.height.value;
     const weight = event.target.elements.weight.value;
     const kids = event.target.elements.kids.value;
     const intrested = event.target.elements.intrested.value;
     const info = event.target.elements.info.value;
-    const userCard = {name, age, gender, live, height, weight, kids, intrested, info}
+    const userCard = {name, age, gender, location, height, weight, kids, intrested, info}
     if(!userCard)throw new Error("cant find userCard Value's")
       
     fetch("/api/users/newProfile", {

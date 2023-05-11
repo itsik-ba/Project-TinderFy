@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 export const profileSchema = new Schema({
-      fullname: String,
+      name: String,
       age: Number,
       gender: String,
       location: String,

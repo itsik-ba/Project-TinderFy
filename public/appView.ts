@@ -7,47 +7,57 @@ function creatProfile(){
         <h2 class="main__h2">welcome <span class="main__h2__span"></span></h2>
         <h3 class="main__h3">lets create your profile</h3>
         <form class="profileForm" onsubmit="createMyCard(event)">
-         <label for="fnam" class="label">full name:</label>
+
+         <label for="name" class="label">full name:</label>
          <br>
          <input class="input" type="text" name="name">
          <br>
+
          <label class="label" for="age">what is your age:</label> 
          <br>
          <input class="input" type="number" name="age">  
          <br>
+
          <label class="label" for="gender">whats your gender:</label>
          <br>
          <input class="inputRadio" type="radio" name="gender" value="man">man
          <input class="inputRadio" type="radio" name="gender" value="women">women
          <input class="inputRadio" type="radio" name="gender" value="other">other
          <br>
-           <label class="label" for="live">where do you live:</label>
+
+           <label class="label" for="location">where do you live:</label>
            <br>
-           <input class="input" type="text" name="live">
+           <input class="input" type="text" name="location">
            <br>
+
             <label class="label" for="height">what is your height:</label>
             <br>
             <input class="input" type="number" name="height">
             <br>
+
             <label class="label" for="weight">what is your weight:</label>
             <br>
             <input class="input" type="number" name="weight">
             <br>
+
             <label for="kids">do you have kids:</label>
             <br>
             <input class="inputRadio" type="radio" name="kids" value="ido">I do
             <input class="inputRadio" type="radio" name="kids" value="no">no kids
             <br>
+
             <label class="label" for="intrested">intrested in:</label>
             <br>
             <input class="inputRadio" type="radio" name="intrested" value="man">man
             <input class="inputRadio" type="radio" name="intrested" value="women">women
             <input class="inputRadio" type="radio" name="intrested" value="both">both
             <br>
+
             <label class="label" for="yourself">few words about yourself:</label>
               <br>
               <textarea name="info" id="" cols="30" rows="10"></textarea>
               <br>
+
               <button id="btnCreatProfile" type="submit">creat-profile</button>
         </form>
         </div>

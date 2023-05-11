@@ -5,13 +5,13 @@ function createMyCard(event) {
         var name = event.target.elements.name.value;
         var age = event.target.elements.age.value;
         var gender = event.target.elements.gender.value;
-        var live = event.target.elements.live.value;
+        var location = event.target.elements.location.value;
         var height = event.target.elements.height.value;
         var weight = event.target.elements.weight.value;
         var kids = event.target.elements.kids.value;
         var intrested = event.target.elements.intrested.value;
         var info = event.target.elements.info.value;
-        var userCard = { name: name, age: age, gender: gender, live: live, height: height, weight: weight, kids: kids, intrested: intrested, info: info };
+        var userCard = { name: name, age: age, gender: gender, location: location, height: height, weight: weight, kids: kids, intrested: intrested, info: info };
         if (!userCard)
             throw new Error("cant find userCard Value's");
         fetch("/api/users/newProfile", {
