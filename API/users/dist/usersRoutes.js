@@ -7,6 +7,5 @@ router
     .get("/", usersControlls_1.renderHome)
     .post("/add-User", usersControlls_1.addNewUser)
     .post("add-User/newProfile", usersControlls_1.newProfile)
-    // .get()
     .post("/login", usersControlls_1.userLogin);
 exports["default"] = router;

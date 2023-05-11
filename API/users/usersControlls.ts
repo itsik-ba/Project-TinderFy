@@ -14,8 +14,6 @@ export const renderHome = async (req:any, res:any) => {
   }  
 
 }
-
-
 export const addNewUser = async (req:any, res:any) => {
    try {
      const { name, email, password } = req.body;
