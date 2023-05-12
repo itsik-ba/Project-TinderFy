@@ -2,5 +2,7 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var router = express_1["default"].Router();
-router;
+var prefferanceControls_1 = require("./prefferanceControls");
+router
+    .post("/prefferance", prefferanceControls_1.userPrefferance);
 exports["default"] = router;

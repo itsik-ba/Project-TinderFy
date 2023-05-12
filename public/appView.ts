@@ -78,7 +78,7 @@ function myPreferences(){
         <div>
         <h2>Now we will ask you about your preferences</h2>
         <h3>Your preferences will affect the adjustments you receive</h3>
-        <form>
+        <form onsubmit="createMyPrefferance()">
           <label for="Height">prefferd height:</label>
           <br>
           <input type="radio" name="Height" value="Tall">very tall - 1.80+

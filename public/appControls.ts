@@ -16,7 +16,7 @@ try {
     const userCard = {name, age, gender, location, height, weight, kids, intrested, info}
     if(!userCard)throw new Error("cant find userCard Value's")
       
-    fetch("/api/users/newProfile", {
+    fetch("/api/profileUser/newProfile", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -27,7 +27,7 @@ try {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          createMyPrefferance(event)
+          myPreferences()
         })
 
 
@@ -40,6 +40,10 @@ try {
 function createMyPrefferance(event: any){
   event.preventDefault()
   try {
+
+    
+
+
     
   } catch (error) {
     

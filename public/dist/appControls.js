@@ -14,7 +14,7 @@ function createMyCard(event) {
         var userCard = { name: name, age: age, gender: gender, location: location, height: height, weight: weight, kids: kids, intrested: intrested, info: info };
         if (!userCard)
             throw new Error("cant find userCard Value's");
-        fetch("/api/users/newProfile", {
+        fetch("/api/profileUser/newProfile", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -25,7 +25,7 @@ function createMyCard(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            createMyPrefferance(event);
+            myPreferences();
         });
     }
     catch (error) {
