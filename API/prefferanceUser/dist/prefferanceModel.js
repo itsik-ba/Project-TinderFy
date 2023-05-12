@@ -3,14 +3,16 @@ exports.__esModule = true;
 exports.prefferanceSchema = void 0;
 var mongoose_1 = require("mongoose");
 exports.prefferanceSchema = new mongoose_1.Schema({
-    fullname: String,
-    age: Number,
-    //   gender: {
-    //     layout: 'checkbox'
-    //   },
-    country: String,
-    height: Number,
-    weight: Number,
-    yourself: String
+    height: String,
+    bodyType: String,
+    kids: String,
+    smoking: String,
+    hangout: String,
+    education: String,
+    job: String,
+    relationship: String,
+    politics: String,
+    religious: String
 });
-exports["default"] = exports.prefferanceSchema;
+var Prefferance = mongoose_1["default"].model("prefferance", exports.prefferanceSchema);
+exports["default"] = Prefferance;

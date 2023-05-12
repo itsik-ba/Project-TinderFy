@@ -27,13 +27,24 @@ try {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          
+          createMyPrefferance(event)
         })
 
 
 } catch (error) {
   console.error(error)  
 }
+}
+
+
+function createMyPrefferance(event: any){
+  event.preventDefault()
+  try {
+    
+  } catch (error) {
+    
+  }
+
 
 
 }

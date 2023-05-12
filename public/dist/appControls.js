@@ -25,9 +25,17 @@ function createMyCard(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            createMyPrefferance(event);
         });
     }
     catch (error) {
         console.error(error);
+    }
+}
+function createMyPrefferance(event) {
+    event.preventDefault();
+    try {
+    }
+    catch (error) {
     }
 }

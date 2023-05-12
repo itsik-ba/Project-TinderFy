@@ -23,6 +23,7 @@ function handleRegister(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            window.location.href = "app.html";
         });
     }
     catch (error) {
@@ -51,7 +52,7 @@ function handleLogin(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "app.html";
+            window.location.href = "main.html";
         });
     }
     catch (error) {

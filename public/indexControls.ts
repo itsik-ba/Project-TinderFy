@@ -23,6 +23,7 @@ function handleRegister(event: any){
       .then((data) => {
         console.log(data);
         
+        window.location.href = "app.html"
       })
      } catch (error) {
     console.error(error)
@@ -54,7 +55,7 @@ function handleLogin(event: any){
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          window.location.href = "app.html"
+          window.location.href = "main.html"
          
           
       })

@@ -1,18 +1,20 @@
 import mongoose, { Schema } from "mongoose";
 
 export const prefferanceSchema = new Schema({
-      fullname: String,
-      age: Number,
-    //   gender: {
-    //     layout: 'checkbox'
-    //   },
-      country: String,
-      height: Number,
-      weight: Number,
-      yourself: String,
-    //   intrested:{
-    //     layout: 'checkbox'
-    //   },
-  });
+     height: String,
+     bodyType: String,
+     kids: String,
+     smoking: String,
+     hangout: String,
+     education: String,
+     job: String,
+     relationship: String,
+     politics: String,
+     religious: String,
+});
 
-export default prefferanceSchema;
+
+  const Prefferance = mongoose.model("prefferance", prefferanceSchema)
+
+
+export default Prefferance;

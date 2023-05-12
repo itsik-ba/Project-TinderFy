@@ -11,6 +11,10 @@ app.use(cookie_parser_1["default"]());
 // routes
 var usersRoutes_1 = require("./API/users/usersRoutes");
 app.use("/api/users", usersRoutes_1["default"]);
+var profileRouter_1 = require("./API/profileUser/profileRouter");
+app.use("/api/profileUser", profileRouter_1["default"]);
+var prefferanceRoutes_1 = require("./API/prefferanceUser/prefferanceRoutes");
+app.use("/api/prefferanceUser", prefferanceRoutes_1["default"]);
 app.use(express_1["default"].static("./public"));
 app.listen(3000, function () {
     console.log("server listen at: 3000");

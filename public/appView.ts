@@ -79,70 +79,70 @@ function myPreferences(){
         <h2>Now we will ask you about your preferences</h2>
         <h3>Your preferences will affect the adjustments you receive</h3>
         <form>
-          <label for="prefferdHeight">prefferd height:</label>
+          <label for="Height">prefferd height:</label>
           <br>
-          <input type="radio" name="Height" value="veryTall">very tall - 1.90+
-          <input type="radio" name="Height" value="avarage">average height -  1.66 / 1.76 
-          <input type="radio" name="Height">Short - 1.55 / 1.65
+          <input type="radio" name="Height" value="Tall">very tall - 1.80+
+          <input type="radio" name="Height" value="avarage">average height - 1.70 / 1.79 
+          <input type="radio" name="Height" value="Short"> - 1.55 / 1.69
           <br>
 
           <label for="bodytype">prefferd body:</label>
           <br>
           <input type="radio" name="bodytype" value="full">Full body structure
-          <input type="radio" name="bodytype" value="">Average body type
+          <input type="radio" name="bodytype" value="average">Average body type
           <input type="radio" name="bodytype" value="lean">lean body structure
           <br>
 
-          <label for="prefferdHairColor">Favorite hair color:</label>
+          <label for="kids">intrested in kids:</label>
           <br>
-          <input type="radio" name="prefferdHairColorBlond">Blond
-          <input type="radio" name="prefferdHairColorBlack">Black
-          <input type="radio" name="prefferdHairColorAny">Any
-          <br>
-
-          <label for="prefferdSmoking">Smoking:</label>
-          <br>
-          <input type="radio" name="prefferdSmokingNo">No
-          <input type="radio" name="prefferdSmokingYes">Yes
-          <input type="radio" name="prefferdSmokingSometime">Sometime
+          <input type="radio" name="kids" vlaue="yes">yes
+          <input type="radio" name="kids" vlaue="not now">not now
+          <input type="radio" name="kids" vlaue="never">never
           <br>
 
-          <label for="prefferdHangOut">likes to hang out:</label>
+          <label for="Smoking">Smoking:</label>
           <br>
-          <input type="radio" name="prefferdHangOutHome">Home
-          <input type="radio" name="prefferdHangOutOutside">Outside
-          <input type="radio" name="prefferdHangOutBoth">Both
-          <br>
-
-          <label for="prefferdEducation">education:</label>
-          <br>
-          <input type="radio" name="prefferdEducationHighSchool">high school
-          <input type="radio" name="prefferdEducationUniversityDegree">University degree
-          <input type="radio" name="prefferdEducationIDidntStudy">I didnt study
+          <input type="radio" name="Smoking" value="no">No
+          <input type="radio" name="Smoking" value="yes">Yes
+          <input type="radio" name="Smoking" value="sometimes">Sometime
           <br>
 
-          <label for="prefferdEconomicSituation">Economic situation:</label>
+          <label for="HangOut">likes to hang out:</label>
           <br>
-          <input type="radio" name="prefferdEconomicSituationAverage">average
-          <input type="radio" name="prefferdEconomicSituationAboveAverage">Above average
-          <input type="radio" name="prefferdEconomicSituationBelowAverage">Below average
-          <br>
-
-          <label for="prefferdRelationship">The type of relationship:</label>
-          <br>
-          <input type="radio" name="prefferdRelationshipLookingForLove">looking for love
-          <input type="radio" name="prefferdRelationshipLookingForAnAffair">Looking for an affair
-          <input type="radio" name="prefferdRelationshipFriendshipOrFinancialSupport">Friendship or financial support
+          <input type="radio" name="HangOut" value="home">Home
+          <input type="radio" name="HangOut" value="outside">Outside
+          <input type="radio" name="HangOut" value="both">Both
           <br>
 
-          <label for="prefferdPoliticalPerception">political perception:</label>
+          <label for="Education">education:</label>
           <br>
-          <input type="radio" name="prefferdPoliticalPerceptionRight">Right
-          <input type="radio" name="prefferdPoliticalPerceptionLeft">Left
-          <input type="radio" name="prefferdPoliticalPerceptionIDontCare">I Dont Care
+          <input type="radio" name="Education" value="high school">high school
+          <input type="radio" name="Education" value="University">University 
+          <input type="radio" name="Education" value="didnt study">didnt study
+          <br>
+
+          <label for="Job"> Job:</label>
+          <br>
+          <input type="radio" name="Job" value="yes">yes
+          <input type="radio" name="Job" value="no">No
+          <input type="radio" name="Job" value="between">Between Jobs
+          <br>
+
+          <label for="Relationship">The type of relationship:</label>
+          <br>
+          <input type="radio" name="Relationship" value="love">looking for love
+          <input type="radio" name="Relationship" value="affair">Looking for an affair
+          <input type="radio" name="Relationship" value="Friendship">Friendship
+          <br>
+
+          <label for="Politics">political perception:</label>
+          <br>
+          <input type="radio" name="Politics" value="right">Right
+          <input type="radio" name="Politics" value="left">Left
+          <input type="radio" name="Politics" value="DontCare">Dont Care
           <br>
           
-          <label for="prefferdReligiousBelief">Religious belief:</label>
+          <label for="religious">Religious belief:</label>
           <br>
           <input type="radio" name="religious" value="religious">religious
           <input type="radio" name="religious" value="secular">secular
