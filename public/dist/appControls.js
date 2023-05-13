@@ -35,6 +35,32 @@ function createMyCard(event) {
 function createMyPrefferance(event) {
     event.preventDefault();
     try {
+        var height = event.target.elements.height.value;
+        var bodytype = event.target.elements.bodytype.value;
+        var kids = event.target.elements.kids.value;
+        var smoking = event.target.elements.smoking.value;
+        var hangout = event.target.elements.hangout.value;
+        var education = event.target.elements.education.value;
+        var job = event.target.elements.job.value;
+        var relationship = event.target.elements.relationship.value;
+        var politics = event.target.elements.politics.value;
+        var religious = event.target.elements.religious.value;
+        var userPreffrance = { height: height, bodytype: bodytype, kids: kids, smoking: smoking, hangout: hangout, education: education, job: job, relationship: relationship, politics: politics, religious: religious };
+        if (!userPreffrance)
+            throw new Error("cant find user prefferance");
+        fetch("/api/prefferanceUser/prefferance", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userPreffrance)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+            console.log(data);
+            renderUserPage();
+        });
     }
     catch (error) {
     }
