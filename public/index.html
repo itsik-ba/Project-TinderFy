@@ -10,7 +10,34 @@
     <script src="./dist/index.js" defer></script>
 </head>
 <body onload="handleCreatMyForm()">
-    <div class="container"></div>
+    <div class="wrapper">
+        <div class="wrapper__info"></div>
+    <div class="container">
+        <div class="container__form">
+          <form onsubmit= "handleRegister(event)" class="registerForm"> 
+            <h2 class="registerForm__h2">Register Here</h2>
+            <label class="registerForm__label" for="name">Name:</label>
+            <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
+            <label class="registerForm__label"  for="email">Email:</label>
+           <input class="registerForm__input" type="email" name="email" placeholder="enter email">
+            <label class="registerForm__label"  for="password">Password:</label>
+                <input class="registerForm__input" type="password" name="password" placeholder="enter password">
+                    <button class="registerForm__btn" type="submit">Register</button>
+                    </form>
+                    <div class="moveToSignIn"><button class="moveToSignIn__btn" onclick="handleSignIn()">sign-in</button></div>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="container__forminfo"></div>
+    </div>
+</div>
+
     </body>
 </html>
 
