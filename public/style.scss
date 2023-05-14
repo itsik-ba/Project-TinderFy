@@ -33,18 +33,32 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 
-
+       
      &__form{
         width: 50%;
         height: 400px;
         float: right;
     }
+    
+      &__SignIn{
+        width: 100%;
 
+     }
+
+
+     #btnsign{
+        background-color: #be2596;
+        color: whitesmoke;
+        border-radius: 50%;
+        display: flex;
+        float: right;
+        padding: 6px;
+    }
 
     &__forminfo{
         width: 50%;
         height: 400px;
-        border: 2px solid rgb(217, 29, 173);
+       
     }
 }
 
@@ -59,7 +73,7 @@ body{
         letter-spacing: 1px;
        justify-content: center;
        display: flex;
-       margin: 15px;
+       margin: 10px;
     }
 
     &__label{
@@ -99,4 +113,32 @@ body{
         margin: 0 105px;
       }
 
+}
+
+.container__forminfo{
+ color: #be2596;
+ text-align: center;
+ padding: 15px 0px;
+
+&__h1{
+    font-size: 40px;
+    padding: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+span{
+   color: black; 
+}
+
+&__h2{
+    font-size: 26px;
+    padding: 15px; 
+    color: black; 
+}
+&__h3{
+    font-size: 24px;
+    color: rgb(0, 21, 255);
+    padding: 15px; 
+}
 }
