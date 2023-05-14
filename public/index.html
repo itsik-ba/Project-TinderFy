@@ -14,6 +14,7 @@
         <div class="wrapper__info"></div>
     <div class="container">
         <div class="container__form">
+            <div class="moveToSignIn"><button class="moveToSignIn__btn" onclick="handleSignIn()">sign-in</button></div>
           <form onsubmit= "handleRegister(event)" class="registerForm"> 
             <h2 class="registerForm__h2">Register Here</h2>
             <label class="registerForm__label" for="name">Name:</label>
@@ -22,9 +23,10 @@
            <input class="registerForm__input" type="email" name="email" placeholder="enter email">
             <label class="registerForm__label"  for="password">Password:</label>
                 <input class="registerForm__input" type="password" name="password" placeholder="enter password">
+                <br>
                     <button class="registerForm__btn" type="submit">Register</button>
                     </form>
-                    <div class="moveToSignIn"><button class="moveToSignIn__btn" onclick="handleSignIn()">sign-in</button></div>
+                    
 
 
 
