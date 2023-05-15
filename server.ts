@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 app.use(express.json());
 import "./data/db";
 app.use(cookieParser());
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 
 // routes

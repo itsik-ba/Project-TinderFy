@@ -36,22 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.userLogin = exports.addNewUser = exports.renderHome = void 0;
+exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
-exports.renderHome = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        try {
-            res.render("index.html");
-            res.status(201).send({ ok: true });
-        }
-        catch (error) {
-            console.error(error);
-        }
-        return [2 /*return*/];
-    });
-}); };
 exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, email, password, userLogin_1, error_1;
     return __generator(this, function (_b) {
