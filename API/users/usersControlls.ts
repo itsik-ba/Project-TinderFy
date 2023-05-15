@@ -3,16 +3,16 @@ import UserModel from "./usersModel";
 const jwt:any = require("jwt-simple");
 const secret:string | undefined = process.env.JWT_SECRET;
 
-export const renderHome = async (req:any, res:any) => {
-  try {
-   res.render("index.html")
-    res.status(201).send({ok:true})
+// export const renderHome = async (req:any, res:any) => {
+//   try {
+//    res.render("index.html")
+//     res.status(201).send({ok:true})
 
-    } catch (error) {
-     console.error(error)
-  }  
+//     } catch (error) {
+//      console.error(error)
+//   }  
 
-}
+// }
 export const addNewUser = async (req:any, res:any) => {
    try {
      const { name, email, password } = req.body;

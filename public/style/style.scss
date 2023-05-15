@@ -37,7 +37,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    
        
      &__form{
         width: 50%;
@@ -113,9 +113,10 @@ body{
         font-size: 16px;
         background-color: #be2596;
         border-radius: 50%;
-        padding: 6px;
+        padding: 5px;
         display: inline-block;
         margin: 0 105px;
+        
       }
 
 }
@@ -124,7 +125,8 @@ body{
  color: #be2596;
  text-align: center;
  padding: 15px 0px;
-
+ margin: 40px 0px;
+z-index: 0;
 &__h1{
     font-size: 40px;
     padding: 10px;
@@ -140,10 +142,13 @@ span{
     font-size: 26px;
     padding: 15px; 
     color: black; 
+    
 }
+
 &__h3{
     font-size: 24px;
     color: rgb(0, 21, 255);
     padding: 15px; 
+   
 }
 }
