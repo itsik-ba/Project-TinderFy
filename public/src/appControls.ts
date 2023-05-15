@@ -40,7 +40,7 @@ try {
 function createMyPrefferance(event: any){
   event.preventDefault()
   try {
-  
+  console.log("dfsdfsdfsdf")
     const height = event.target.elements.height.value;
     const bodytype = event.target.elements.bodytype.value;
     const kids = event.target.elements.kids.value;
@@ -66,7 +66,8 @@ function createMyPrefferance(event: any){
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        renderUserPage()
+        console.log("signin lets go")
+        handleSignIn()
       })
     
 

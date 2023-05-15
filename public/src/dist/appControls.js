@@ -35,6 +35,7 @@ function createMyCard(event) {
 function createMyPrefferance(event) {
     event.preventDefault();
     try {
+        console.log("dfsdfsdfsdf");
         var height = event.target.elements.height.value;
         var bodytype = event.target.elements.bodytype.value;
         var kids = event.target.elements.kids.value;
@@ -59,7 +60,8 @@ function createMyPrefferance(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            renderUserPage();
+            console.log("signin lets go");
+            handleSignIn();
         });
     }
     catch (error) {
