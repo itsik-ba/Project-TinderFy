@@ -1,4 +1,4 @@
-// fetch all the info from the form 
+// fetch all the info from the form
 function createMyCard(event) {
     event.preventDefault();
     try {
@@ -11,7 +11,17 @@ function createMyCard(event) {
         var kids = event.target.elements.kids.value;
         var intrested = event.target.elements.intrested.value;
         var info = event.target.elements.info.value;
-        var userCard = { name: name, age: age, gender: gender, location: location, height: height, weight: weight, kids: kids, intrested: intrested, info: info };
+        var userCard = {
+            name: name,
+            age: age,
+            gender: gender,
+            location: location,
+            height: height,
+            weight: weight,
+            kids: kids,
+            intrested: intrested,
+            info: info
+        };
         if (!userCard)
             throw new Error("cant find userCard Value's");
         fetch("/api/profileUser/newProfile", {
@@ -32,21 +42,35 @@ function createMyCard(event) {
         console.error(error);
     }
 }
-function createMyPrefferance(event) {
-    event.preventDefault();
+function createMyPrefferance(ev) {
     try {
-        console.log("dfsdfsdfsdf");
-        var height = event.target.elements.height.value;
-        var bodytype = event.target.elements.bodytype.value;
-        var kids = event.target.elements.kids.value;
-        var smoking = event.target.elements.smoking.value;
-        var hangout = event.target.elements.hangout.value;
-        var education = event.target.elements.education.value;
-        var job = event.target.elements.job.value;
-        var relationship = event.target.elements.relationship.value;
-        var politics = event.target.elements.politics.value;
-        var religious = event.target.elements.religious.value;
-        var userPreffrance = { height: height, bodytype: bodytype, kids: kids, smoking: smoking, hangout: hangout, education: education, job: job, relationship: relationship, politics: politics, religious: religious };
+        ev.preventDefault();
+        console.log("createMyPrefferance");
+        var elms = ev.target.elements;
+        console.log(elms);
+        var height = elms.height.value;
+        var bodytype = elms.bodytype.value;
+        var kids = elms.kids.value;
+        var smoking = elms.smoking.value;
+        var hangout = elms.hangout.value;
+        var education = elms.education.value;
+        var job = elms.job.value;
+        var relationship = elms.relationship.value;
+        var politics = elms.politics.value;
+        var religious = elms.religious.value;
+        var userPreffrance = {
+            height: height,
+            bodytype: bodytype,
+            kids: kids,
+            smoking: smoking,
+            hangout: hangout,
+            education: education,
+            job: job,
+            relationship: relationship,
+            politics: politics,
+            religious: religious
+        };
+        console.log(userPreffrance);
         if (!userPreffrance)
             throw new Error("cant find user prefferance");
         fetch("/api/prefferanceUser/prefferance", {
@@ -61,9 +85,10 @@ function createMyPrefferance(event) {
             .then(function (data) {
             console.log(data);
             console.log("signin lets go");
-            handleSignIn();
+            window.location.href = "./index.html";
         });
     }
     catch (error) {
+        console.error(error);
     }
 }

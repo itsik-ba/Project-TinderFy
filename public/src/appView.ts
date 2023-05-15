@@ -1,8 +1,9 @@
-
-function creatProfile(){
-    try {
-        const userProfile = document.querySelector(".userProfile")as HTMLDivElement|null
-        const profileHtml = `
+function creatProfile() {
+  try {
+    const userProfile = document.querySelector(
+      ".userProfile"
+    ) as HTMLDivElement | null;
+    const profileHtml = `
         <div class="main">
         <h2 class="main__h2">welcome <span class="main__h2__span"></span></h2>
         <h3 class="main__h3">lets create your profile</h3>
@@ -61,29 +62,28 @@ function creatProfile(){
               <button id="btnCreatProfile" type="submit">creat-profile</button>
         </form>
         </div>
-        `
-        if(userProfile)
-        userProfile.innerHTML = profileHtml
-
-       } catch (error) {
-        console.error(error)
-    }
+        `;
+    if (userProfile) userProfile.innerHTML = profileHtml;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-
-function myPreferences(){
-    try {
-        const userProfile = document.querySelector(".userProfile")as HTMLDivElement|null
-        const myPreferences = `
+function myPreferences() {
+  try {
+    const userProfile = document.querySelector(
+      ".userProfile"
+    ) as HTMLDivElement | null;
+    const myPreferences = `
         <div>
         <h2>Now we will ask you about your preferences</h2>
         <h3>Your preferences will affect the adjustments you receive</h3>
-        <form onsubmit="createMyPrefferance()">
-          <label for="Height">prefferd height:</label>
+        <form onsubmit="createMyPrefferance(event)">
+          <label for="height">prefferd height:</label>
           <br>
-          <input type="radio" name="Height" value="Tall">very tall - 1.80+
-          <input type="radio" name="Height" value="avarage">average height - 1.70 / 1.79 
-          <input type="radio" name="Height" value="Short"> - 1.55 / 1.69
+          <input type="radio" name="height" value="Tall">very tall - 1.80+
+          <input type="radio" name="height" value="avarage">average height - 1.70 / 1.79 
+          <input type="radio" name="height" value="Short"> - 1.55 / 1.69
           <br>
 
           <label for="bodytype">prefferd body:</label>
@@ -100,46 +100,46 @@ function myPreferences(){
           <input type="radio" name="kids" vlaue="never">never
           <br>
 
-          <label for="Smoking">Smoking:</label>
+          <label for="smoking">Smoking:</label>
           <br>
-          <input type="radio" name="Smoking" value="no">No
-          <input type="radio" name="Smoking" value="yes">Yes
-          <input type="radio" name="Smoking" value="sometimes">Sometime
-          <br>
-
-          <label for="HangOut">likes to hang out:</label>
-          <br>
-          <input type="radio" name="HangOut" value="home">Home
-          <input type="radio" name="HangOut" value="outside">Outside
-          <input type="radio" name="HangOut" value="both">Both
+          <input type="radio" name="smoking" value="no">No
+          <input type="radio" name="smoking" value="yes">Yes
+          <input type="radio" name="smoking" value="sometimes">Sometime
           <br>
 
-          <label for="Education">education:</label>
+          <label for="hangout">likes to hang out:</label>
           <br>
-          <input type="radio" name="Education" value="high school">high school
-          <input type="radio" name="Education" value="University">University 
-          <input type="radio" name="Education" value="didnt study">didnt study
-          <br>
-
-          <label for="Job"> Job:</label>
-          <br>
-          <input type="radio" name="Job" value="yes">yes
-          <input type="radio" name="Job" value="no">No
-          <input type="radio" name="Job" value="between">Between Jobs
+          <input type="radio" name="hangout" value="home">Home
+          <input type="radio" name="hangout" value="outside">Outside
+          <input type="radio" name="hangout" value="both">Both
           <br>
 
-          <label for="Relationship">The type of relationship:</label>
+          <label for="education">Education:</label>
           <br>
-          <input type="radio" name="Relationship" value="love">looking for love
-          <input type="radio" name="Relationship" value="affair">Looking for an affair
-          <input type="radio" name="Relationship" value="Friendship">Friendship
+          <input type="radio" name="education" value="high school">high school
+          <input type="radio" name="education" value="University">University 
+          <input type="radio" name="education" value="didnt study">didnt study
           <br>
 
-          <label for="Politics">political perception:</label>
+          <label for="job"> Job:</label>
           <br>
-          <input type="radio" name="Politics" value="right">Right
-          <input type="radio" name="Politics" value="left">Left
-          <input type="radio" name="Politics" value="DontCare">Dont Care
+          <input type="radio" name="job" value="yes">yes
+          <input type="radio" name="job" value="no">No
+          <input type="radio" name="job" value="between">Between Jobs
+          <br>
+
+          <label for="relationship">The type of relationship:</label>
+          <br>
+          <input type="radio" name="relationship" value="love">looking for love
+          <input type="radio" name="relationship" value="affair">Looking for an affair
+          <input type="radio" name="relationship" value="Friendship">Friendship
+          <br>
+
+          <label for="politics">political perception:</label>
+          <br>
+          <input type="radio" name="politics" value="right">Right
+          <input type="radio" name="politics" value="left">Left
+          <input type="radio" name="politics" value="DontCare">Dont Care
           <br>
           
           <label for="religious">Religious belief:</label>
@@ -151,10 +151,9 @@ function myPreferences(){
           <button type="submit">creat</button>
         </form>
     </div>
-    `
-         if(userProfile)
-         userProfile.innerHTML = myPreferences;
-    } catch (error) {
-        console.error(error)
-    }
-   }
+    `;
+    if (userProfile) userProfile.innerHTML = myPreferences;
+  } catch (error) {
+    console.error(error);
+  }
+}
