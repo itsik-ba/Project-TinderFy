@@ -23,19 +23,44 @@ body{
     
     &__userCard{
         position: relative;
-        background-color: black;
         width: 300px;
-        height: 300px;
-        margin:  50px 5px;
-        border-radius: 50%;
+        height: 350px;
+        margin:  50px 20px;
         float: right;
         color: white;
-    }
 
-    &__img{
-      position: absolute;
-     width: 100%;
+        &__top{
+         width: 300px;
+         height: 100px;
+         background-color: paleturquoise;
+         border-top-left-radius: 50px;
+         border-top-right-radius: 50px;
+      }
+
+        &__bottom{
+         background-color: cornsilk;
+         width: 300px;
+         height: 250px;
+         border-bottom-left-radius: 50px;
+         border-bottom-right-radius: 50px;
+        }
+        
+        &__img{
+         position: absolute;
+         border-radius: 50%;
+         left: 30%;
+         top: 10%;
+        }
+
+      &__h2{
+         position: absolute;
+         top:50%;
+         left:30%
+      }
+
     }
+  
+    
  }  
 
  .navBar{
@@ -58,4 +83,13 @@ body{
        
        }
     }
+ }
+
+ .otherUsers{
+   display: flex;
+   justify-content: center;
+    margin: 20px 60px;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(253, 252, 252);
  }
