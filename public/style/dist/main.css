@@ -19,13 +19,18 @@ body {
   height: 100vh;
 }
 .mainNav__userCard {
+  position: relative;
   background-color: black;
   width: 300px;
   height: 300px;
-  margin: 50px;
+  margin: 50px 5px;
   border-radius: 50%;
   float: right;
   color: white;
+}
+.mainNav__img {
+  position: absolute;
+  width: 100%;
 }
 
 .navBar {
