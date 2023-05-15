@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 app.use(express.json());
 import "./data/db";
 app.use(cookieParser());
+app.use(express.static("public"));
 
 
 // routes
@@ -19,7 +20,6 @@ app.use("/api/profileUser", profileRouter)
 import preffranceRoutes from "./API/prefferanceUser/prefferanceRoutes";
 app.use("/api/prefferanceUser", preffranceRoutes)
 
-app.use(express.static("./public"));
 
 app.listen(3000, ()=>{
     console.log(`server listen at: 3000`)

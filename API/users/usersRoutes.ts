@@ -4,13 +4,13 @@ const router = express.Router();
 import {
 userLogin, 
 addNewUser,
-// renderHome,
+renderHome,
 
 
 } from "./usersControlls";
 
 router
-// .get("/", renderHome)
+.get("/", renderHome)
 .post("/add-User", addNewUser)
 .post("/login", userLogin)
 
