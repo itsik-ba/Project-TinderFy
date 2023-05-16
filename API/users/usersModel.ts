@@ -3,9 +3,9 @@ import mongoose, { Schema } from "mongoose"
 
 
 export const UserSchema = new Schema ({
-    name: String,
-    password: String || Number,
-    email: String,
+    name: {require:true, type:String, unique:true}, 
+    password: {require:true, type:String || Number, unique:true},
+    email: {require:true, type:String, unique:true},
    })
 
 

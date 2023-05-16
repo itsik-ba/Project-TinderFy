@@ -15,4 +15,4 @@ export const newProfile = async (req:any, res:any)=>{
    
   }
 
-
+  
