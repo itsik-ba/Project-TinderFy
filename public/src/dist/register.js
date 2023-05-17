@@ -4,3 +4,6 @@ function handleCreatMyForm() {
     var body = document.querySelector("body");
     body.innerHTML = html;
 }
+function handleSignIn() {
+    window.location.href = "login.html";
+}

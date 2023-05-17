@@ -35,7 +35,9 @@ function handleCreatMyForm(){
     body.innerHTML = html;
 }
 
-
+function handleSignIn(){
+  window.location.href = "login.html"
+}
 
 
 

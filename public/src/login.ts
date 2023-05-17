@@ -1,5 +1,5 @@
 // the sign in function
-function handleSignIn(){
+function myLogin(){
  
     const html = `
       
@@ -9,7 +9,7 @@ function handleSignIn(){
     <div class="container__form">
         <div class="container__form__SignIn">
   
-        <button class="container__form__SignIn__btnsign" id="btnsign" onclick="handleCreatMyForm()">Register</button></div>
+        <button class="container__form__SignIn__btnsign" id="btnsign" onclick="moveToRegister()">Register</button></div>
   
         <form onsubmit= "handleLogin(event)" class="registerForm"> 
         <h2 class="registerForm__h2">Register Here</h2>
@@ -25,3 +25,8 @@ function handleSignIn(){
     body.innerHTML = html
   }
   
+
+  function moveToRegister(){
+
+    window.location.href = "index.html"
+  }

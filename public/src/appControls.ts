@@ -88,7 +88,7 @@ function createMyPrefferance(ev: any) {
       .then((data) => {
         console.log(data);
         console.log("signin lets go");
-        window.location.href = "./index.html";
+        window.location.href = "./login.html";
       });
   } catch (error) {
     console.error(error)

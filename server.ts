@@ -1,6 +1,5 @@
 import express from "express";
 const app = express();
-import mongoose, {Schema} from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config()
 import cookieParser from 'cookie-parser';
