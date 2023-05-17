@@ -12,7 +12,7 @@ function myLogin(){
         <button class="container__form__SignIn__btnsign" id="btnsign" onclick="moveToRegister()">Register</button></div>
   
         <form onsubmit= "handleLogin(event)" class="registerForm"> 
-        <h2 class="registerForm__h2">Register Here</h2>
+        <h2 class="registerForm__h2">Sign In Here</h2>
         <label class="registerForm__label" for="name">Name:</label>
         <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
          <label class="registerForm__label"  for="password">Password:</label>
@@ -23,6 +23,7 @@ function myLogin(){
     `
     const body = document.querySelector("body")as HTMLBodyElement;
     body.innerHTML = html
+    
   }
   
 
