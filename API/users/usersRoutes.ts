@@ -4,14 +4,15 @@ const router = express.Router();
 import {
 userLogin, 
 addNewUser,
+getAllUsers,
 
 
 
 } from "./usersControlls";
 
 router
-
-.post("/add-User", addNewUser)
+.get("/getusers", getAllUsers)
+.post("/register", addNewUser)
 .post("/login", userLogin)
 
 

@@ -6,12 +6,13 @@ function handleRegister(event: any){
     const name = event.target.elements.name.value;
     const email = event.target.elements.email.value;
     const password = event.target.elements.password.value;
+    
     const userLogin = {name, email, password}
     if(!name)throw new Error("cant find user name")
     if(!email)throw new Error("cant find user email")
     if(!password)throw new Error("cant find user password")
      
-    fetch("/api/users/add-user", {
+    fetch("/api/users/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

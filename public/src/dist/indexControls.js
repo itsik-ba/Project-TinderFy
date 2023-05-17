@@ -12,7 +12,7 @@ function handleRegister(event) {
             throw new Error("cant find user email");
         if (!password)
             throw new Error("cant find user password");
-        fetch("/api/users/add-user", {
+        fetch("/api/users/register", {
             method: "POST",
             headers: {
                 Accept: "application/json",

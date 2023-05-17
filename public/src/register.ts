@@ -35,32 +35,6 @@ function handleCreatMyForm(){
     body.innerHTML = html;
 }
 
-// the sign in function
-function handleSignIn(){
- 
-  const html = `
-    
-  <div class="wrapper">
-  <div class="wrapper__info"></div>
-<div class="container">
-  <div class="container__form">
-      <div class="container__form__SignIn">
-
-      <button class="container__form__SignIn__btnsign" id="btnsign" onclick="handleCreatMyForm()">Register</button></div>
-
-      <form onsubmit= "handleLogin(event)" class="registerForm"> 
-      <h2 class="registerForm__h2">Register Here</h2>
-      <label class="registerForm__label" for="name">Name:</label>
-      <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
-       <label class="registerForm__label"  for="password">Password:</label>
-          <input class="registerForm__input" type="password" name="password" placeholder="enter password">
-          <br>
-              <button class="registerForm__btn" type="submit">Sign-In</button>
-              </form>
-  `
-  const body = document.querySelector("body")as HTMLBodyElement;
-  body.innerHTML = html
-}
 
 
 
