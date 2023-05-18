@@ -13,8 +13,6 @@ app.use(cookieParser());
 import usersRoutes from "./API/users/usersRoutes";
 app.use("/api/users", usersRoutes);
 
-import profileRouter from "./API/profileUser/profileRouter";
-app.use("/api/profileUser", profileRouter)
 
 import preffranceRoutes from "./API/prefferanceUser/prefferanceRoutes";
 app.use("/api/prefferanceUser", preffranceRoutes)

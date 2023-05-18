@@ -1,2 +1,2 @@
-function renderUserPage() {
-}
+// function renderUserPage(){
+// }

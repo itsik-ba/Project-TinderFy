@@ -3,8 +3,6 @@ const jwt:any = require("jwt-simple");
 const secret:string | undefined = process.env.JWT_SECRET;
 
 
-
-
 export const addNewUser = async (req:any, res:any) => {
    try {
      const { name, email, password } = req.body;

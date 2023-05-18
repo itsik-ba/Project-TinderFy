@@ -24,7 +24,7 @@ function createMyCard(event) {
         };
         if (!userCard)
             throw new Error("cant find userCard Value's");
-        fetch("/api/profileUser/newProfile", {
+        fetch("/api/users/", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -86,6 +86,21 @@ function createMyPrefferance(ev) {
             console.log(data);
             console.log("signin lets go");
             window.location.href = "./login.html";
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handlegetMyUser() {
+    console.log("get user");
+    try {
+        fetch("/api/users/getusers")
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var users = _a.users;
+            console.log(users);
+            // userRender(users)
         });
     }
     catch (error) {

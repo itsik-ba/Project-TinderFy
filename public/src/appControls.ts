@@ -25,7 +25,7 @@ function createMyCard(event: any) {
     };
     if (!userCard) throw new Error("cant find userCard Value's");
 
-    fetch("/api/profileUser/newProfile", {
+    fetch("/api/users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -94,3 +94,21 @@ function createMyPrefferance(ev: any) {
     console.error(error)
   }
 }
+
+
+function handlegetMyUser() {
+console.log("get user")
+try {
+  fetch("/api/users/getusers")
+  .then((res) => res.json())
+  .then(({ users }) =>{
+    console.log(users)
+    // userRender(users)
+  })
+
+
+} catch (error) {
+  console.error(error)
+}
+}
+
