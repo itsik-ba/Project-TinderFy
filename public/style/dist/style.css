@@ -10,7 +10,7 @@ body {
   font-family: "Ubuntu", sans-serif;
   width: 100vw;
   height: 100vh;
-  background: url(/public/images/mybk.jpg);
+  background: url(../images/mybk.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

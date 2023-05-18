@@ -7,7 +7,7 @@ function handleRegister(event) {
         var password = event.target.elements.password.value;
         var userLogin = { name: name, email: email, password: password };
         if (!name)
-            throw new Error("cant find user name");
+            throw new Error("Name Requierd");
         if (!email)
             throw new Error("cant find user email");
         if (!password)
@@ -37,8 +37,12 @@ function handleLogin(event) {
         var name = event.target.elements.name.value;
         var password = event.target.elements.password.value;
         var userLogin = { name: name, password: password };
+        var htmlEror = document.querySelector("#error");
         if (!name)
-            throw new Error("cant find user name");
+            throw new Error("user name is not valid");
+        {
+            htmlEror.innerHTML = "Name Error";
+        }
         if (!password)
             throw new Error("cant find user password");
         fetch("/api/users/login", {

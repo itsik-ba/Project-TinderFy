@@ -20,6 +20,11 @@ function myLogin(){
             <br>
                 <button class="registerForm__btn" type="submit">Sign-In</button>
                 </form>
+                <div class="container__forminfo"> <h1 id
+                ="error"></h1>
+                </div>
+</div>
+
     `
     const body = document.querySelector("body")as HTMLBodyElement;
     body.innerHTML = html
