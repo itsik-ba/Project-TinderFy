@@ -10,11 +10,7 @@ function creatProfile() {
         <h3 class="main__h3">lets create your profile</h3>
         <form class="profileForm" onsubmit="createMyCard(event)">
 
-         <label for="name" class="label">full name:</label>
-         <br>
-         <input class="input" type="text" name="name">
-         <br>
-
+        
          <label class="label" for="age">what is your age:</label> 
          <br>
          <input class="input" type="number" name="age">  

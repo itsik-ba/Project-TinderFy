@@ -51,14 +51,9 @@ export const getAllUsers = async (req:any, res:any) => {
    }
 export const updataUser = async (req:any, res:any) => {
       try {
-        
-       const users = await UserModel.find({})
-       console.log(users)
-       res.status(200).json({
-        status:"ok", 
-        results:users.length, 
-        data: {data:users}
-       })
+        const users = await UserModel.findOneAndUpdate()
+         
+       
 
       } catch (error) {
         console.error(error)

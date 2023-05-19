@@ -122,15 +122,9 @@ exports.updataUser = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, usersModel_1["default"].find({})];
+                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate()];
             case 1:
                 users = _a.sent();
-                console.log(users);
-                res.status(200).json({
-                    status: "ok",
-                    results: users.length,
-                    data: { data: users }
-                });
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
