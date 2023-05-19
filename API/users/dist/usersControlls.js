@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
+exports.updataUser = exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -111,6 +111,30 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
             case 2:
                 error_3 = _a.sent();
                 console.error(error_3);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updataUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var users, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, usersModel_1["default"].find({})];
+            case 1:
+                users = _a.sent();
+                console.log(users);
+                res.status(200).json({
+                    status: "ok",
+                    results: users.length,
+                    data: { data: users }
+                });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _a.sent();
+                console.error(error_4);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
