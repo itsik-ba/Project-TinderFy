@@ -117,17 +117,18 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.updataUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var users, error_4;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious, users, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate()];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, age = _a.age, gender = _a.gender, location = _a.location, height = _a.height, bodyType = _a.bodyType, kids = _a.kids, smoking = _a.smoking, education = _a.education, job = _a.job, relationship = _a.relationship, info = _a.info, religious = _a.religious;
+                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ age: age, gender: gender, location: location })];
             case 1:
-                users = _a.sent();
+                users = _b.sent();
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _a.sent();
+                error_4 = _b.sent();
                 console.error(error_4);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
