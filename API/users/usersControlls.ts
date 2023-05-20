@@ -42,28 +42,18 @@ export const userLogin = async (req: any, res: any) => {
 export const getAllUsers = async (req: any, res: any) => {
   try {
 
-    const users = await UserModel.find({})
-    console.log(users)
-    res.status(200).json({
-      status: "ok",
-      results: users.length,
-      data: { data: users }
-    })
-
-  } catch (error) {
-    console.error(error)
-  }
-}
-export const updataUser = async (req: any, res: any) => {
-  try {
-    const users = await UserModel.findOneAndUpdate()
+      } catch (error) {
+        console.error(error)
+      }
+   }
 
 
-
-  } catch (error) {
-    console.error(error)
-  }
-}
+export const updataUser = async (req:any, res:any) => {
+      try {
+        const {age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
+        const users = await UserModel.findOneAndUpdate({age, gender, location})
+         
+       
 
 
 

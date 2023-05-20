@@ -14,6 +14,6 @@ router
 .get("/getusers", getAllUsers)
 .post("/register", addNewUser)
 .post("/login", userLogin)
-.put("/updatauser", updataUser)
+.patch("/updatauser", updataUser)
 
 export default router
