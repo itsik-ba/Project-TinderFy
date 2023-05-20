@@ -20,7 +20,16 @@ function handleRegister(event) {
             },
             body: JSON.stringify(userLogin)
         })
-            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            console.log(res);
+            if (res.status === 409) {
+                alert("user already exists");
+                throw new Error("Conflict: Duplicate Entry");
+            }
+            else {
+                return res.json();
+            }
+        })
             .then(function (data) {
             console.log(data);
             window.location.href = "app.html";

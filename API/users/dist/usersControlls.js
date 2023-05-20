@@ -57,6 +57,9 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();
+                if (error_1.code === 11000) {
+                    res.status(409).send({ ok: false, error: "user already exists" });
+                }
                 console.error(error_1);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
@@ -82,7 +85,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                 res.cookie("" + name, token, {
                     maxAge: 9000000, httpOnly: true
                 });
-                res.status(201).send({ ok: true });
+                res.status(200).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
