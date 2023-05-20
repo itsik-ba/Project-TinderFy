@@ -43,7 +43,7 @@ function createMyCard(event: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        myPreferences();
+        // myPreferences();
       });
   } catch (error) {
     console.error(error);
