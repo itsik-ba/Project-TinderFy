@@ -23,7 +23,6 @@ function handleRegister(event) {
             .then(function (res) {
             console.log(res);
             if (res.status === 409) {
-                alert("user already exists");
                 throw new Error("Conflict: Duplicate Entry");
             }
             else {

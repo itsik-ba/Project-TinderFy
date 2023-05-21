@@ -4,7 +4,7 @@ import mongoose, { Schema } from "mongoose"
 
 export const UserSchema = new Schema ({
     // rigester
-    name: {require:[true, "user must enter"], type:String, unique:true}, 
+    name: {require:[true, "user must enter"], type:String}, 
     password: {require:true, type:String},
     email: {require:true, type:String, unique:true},
        

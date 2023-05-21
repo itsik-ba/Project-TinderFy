@@ -4,7 +4,7 @@ exports.UserSchema = void 0;
 var mongoose_1 = require("mongoose");
 exports.UserSchema = new mongoose_1.Schema({
     // rigester
-    name: { require: [true, "user must enter"], type: String, unique: true },
+    name: { require: [true, "user must enter"], type: String },
     password: { require: true, type: String },
     email: { require: true, type: String, unique: true },
     // usercard
