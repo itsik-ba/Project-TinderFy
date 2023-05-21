@@ -23,7 +23,7 @@ export const UserSchema = new Schema ({
     job: {require:true, type:String,},
     relationship: {require:true, type:String,},
     info: {require:true, type:String,},
-    religious: {require:true, type:String,},
+    religious: {require:true, type:String,}
    })
        
 
