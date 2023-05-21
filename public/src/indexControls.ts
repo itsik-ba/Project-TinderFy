@@ -21,25 +21,17 @@ function handleRegister(event: any) {
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => {
-        console.log(res)
-        if (res.status === 409) {
-         throw new Error("Conflict: Duplicate Entry");
-        } else {
-          return res.json();
-        }
-      })
+      .then((res) => res.json()) 
       .then((data) => {
         console.log(data);
-
         window.location.href = "app.html"
-      })
+      }) 
+     
   } catch (error) {
     console.error(error)
   }
 
 }
-
 
 
 // the sign - in

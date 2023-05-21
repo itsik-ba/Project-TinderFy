@@ -5,7 +5,7 @@ import {
 userLogin, 
 addNewUser,
 getAllUsers,
-updataUser,
+// updataUser,
 
 
 } from "./usersControlls";
@@ -14,6 +14,6 @@ router
 .get("/getusers", getAllUsers)
 .post("/register", addNewUser)
 .post("/login", userLogin)
-.patch("/updatauser", updataUser)
+// .patch("/updatauser", updataUser)
 
 export default router

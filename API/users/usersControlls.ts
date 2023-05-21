@@ -13,13 +13,11 @@ export const addNewUser = async (req: any, res: any) => {
     res.status(201).send({ ok: true })
 
   } catch (error) {
-    if ((error as { code: number }).code === 11000) {
-      res.status(409).send({ ok: false, error: `user already exists` });
-    }
     console.error(error)
-  }
+    }
+   }
 
-}
+
 
 export const userLogin = async (req: any, res: any) => {
   try {
@@ -55,11 +53,11 @@ export const getAllUsers = async (req: any, res: any) => {
 }
 
 
-export const updataUser = async (req: any, res: any) => {
-  try {
-    const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
-    const users = await UserModel.findOneAndUpdate({ age, gender, location })
-  } catch (error) {
-    console.error(error)
-  }
-};
+// export const updataUser = async (req: any, res: any) => {
+//   try {
+//     const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
+//     const users = await UserModel.findOneAndUpdate({ age, gender, location })
+//   } catch (error) {
+//     console.error(error)
+//   }
+// };
