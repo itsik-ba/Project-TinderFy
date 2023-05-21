@@ -6,7 +6,7 @@ exports.UserSchema = new mongoose_1.Schema({
     // rigester
     name: { require: [true, "user must enter"], type: String },
     password: { require: true, type: String },
-    email: { require: true, type: String }
+    email: { require: true, type: String, unique: true }
 });
 var UserModel = mongoose_1["default"].model("users", exports.UserSchema);
 exports["default"] = UserModel;

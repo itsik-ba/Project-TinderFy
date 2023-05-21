@@ -2,12 +2,12 @@ import mongoose, { Schema } from "mongoose"
 
 
 
-export const UserSchema = new Schema ({
+export const UserSchema = new Schema({
     // rigester
-    name: {require:[true, "user must enter"], type:String}, 
-    password: {require:true, type:String},
-    email: {require:true, type:String},
-       
+    name: { require: [true, "user must enter"], type: String },
+    password: { require: true, type: String },
+    email: { require: true, type: String, unique: true },
+
     // usercard
     // role: {type:String, enum:["admin", "user"],default:"user"},
     // subscribed:{type:Boolean, default:false, select:false},
@@ -24,10 +24,11 @@ export const UserSchema = new Schema ({
     // relationship: {require:true, type:String,},
     // info: {require:true, type:String,},
     // religious: {require:true, type:String,}
-   })
-       
+})
+
 
 const UserModel = mongoose.model("users", UserSchema);
+
 
 
 
