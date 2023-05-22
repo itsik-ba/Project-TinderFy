@@ -5,40 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="./style/dist/main.css">
-    <script src="./src/dist/renderUser.js" defer></script>
+    <script src="./src/dist/main.js" defer></script>
 </head>
-<body onload="renderUserPage()" style="background-image: url(./images/dsBuffer.jpg)">
-        <div class="mainNav">
-       <nav class="navBar">
-            <ul class="navBar__ul">
-                <li class="navBar__ul__li">Info</li>
-                <li class="navBar__ul__li">Finde Match</li>
-                <li class="navBar__ul__li">Messages</li>
-                <li class="navBar__ul__li">Subscribe</li>
-            </ul>
-          </nav>  
-
-        <div class="mainNav__userCard">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/JenniferAnistonFeb09.jpg" alt="JenniferAniston pic" class="mainNav__userCard__img">
-            <h2 class="mainNav__userCard__h2"  style="color: red;" id="h2User"></h2>
-            <div class="edit" onclick="editUser()"></div>
-            <div class="delete" onclick="deleteUser()"></div>
-           </div>
-            
-         </div>
-<!-- 
-         <div class="otherUsers">
-            
-         </div> -->
-    </div>
-       
-              <div class="image1"><img src="../public/images/cupid.png" alt=""></div>
-      
-     
-   
-
+<body onload="userProfileData()" >
     
 </body>
 </html>

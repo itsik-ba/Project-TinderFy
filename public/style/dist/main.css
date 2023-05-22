@@ -62,23 +62,34 @@ html, body {
 }
 
 .delete {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   position: relative;
-  top: 70px;
-  right: 305px;
+  top: 90px;
+  right: -120px;
   background-image: url("https://cdn-icons-png.flaticon.com/512/1345/1345874.png");
   background-size: 100%;
   cursor: pointer;
 }
 
 .edit {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   position: relative;
-  top: 70px;
-  right: 12px;
+  top: 90px;
+  right: -200px;
   background: url("https://www.pdfzorro.com/Images/IconsFunktionen/pdf-edit.webp");
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.imageUpload {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 90px;
+  right: -40px;
+  background: url("https://static.thenounproject.com/png/625182-200.png");
   background-size: 100%;
   cursor: pointer;
 }
