@@ -10,11 +10,7 @@ function creatProfile() {
         <h3 class="main__h3">lets create your profile</h3>
         <form class="profileForm" onsubmit="createMyCard(event)">
 
-         <label for="name" class="label">full name:</label>
-         <br>
-         <input class="input" type="text" name="name">
-         <br>
-
+        
          <label class="label" for="age">what is your age:</label> 
          <br>
          <input class="input" type="number" name="age">  
@@ -37,9 +33,9 @@ function creatProfile() {
             <input class="input" type="number" name="height">
             <br>
 
-            <label class="label" for="weight">what is your weight:</label>
+            <label class="label" for="bodytype">what is your bodyType:</label>
             <br>
-            <input class="input" type="number" name="weight">
+            <input class="input" type="number" name="bodytype">
             <br>
 
             <label for="kids">do you have kids:</label>
@@ -48,16 +44,43 @@ function creatProfile() {
             <input class="inputRadio" type="radio" name="kids" value="no">no kids
             <br>
 
-            <label class="label" for="intrested">intrested in:</label>
+            <label for="smoking">are you smoking:</label>
             <br>
-            <input class="inputRadio" type="radio" name="intrested" value="man">man
-            <input class="inputRadio" type="radio" name="intrested" value="women">women
-            <input class="inputRadio" type="radio" name="intrested" value="both">both
+            <input class="inputRadio" type="radio" name="smoking" value="ido">I do
+            <input class="inputRadio" type="radio" name="smoking" value="no">no 
             <br>
+
+            <label for="education">Education:</label>
+          <br>
+          <input type="radio" name="education" value="high school">high school
+          <input type="radio" name="education" value="University">University 
+          <input type="radio" name="education" value="didnt study">didnt study
+          <br>
+
+          <label for="job"> Job:</label>
+          <br>
+          <input type="radio" name="job" value="yes">yes
+          <input type="radio" name="job" value="no">No
+          <input type="radio" name="job" value="between">Between Jobs
+          <br>
+
+          <label for="relationship">The type of relationship:</label>
+          <br>
+          <input type="radio" name="relationship" value="love">looking for love
+          <input type="radio" name="relationship" value="affair">Looking for an affair
+          <input type="radio" name="relationship" value="Friendship">Friendship
+          <br>
 
             <label class="label" for="yourself">few words about yourself:</label>
               <br>
               <textarea name="info" id="" cols="30" rows="10"></textarea>
+              <br>
+
+              <label for="religious">Religious belief:</label>
+              <br>
+              <input type="radio" name="religious" value="religious">religious
+              <input type="radio" name="religious" value="secular">secular
+              <input type="radio" name="religious" value="traditional">traditional
               <br>
 
               <button id="btnCreatProfile" type="submit">creat-profile</button>
@@ -136,13 +159,6 @@ function myPreferences() {
           <input type="radio" name="relationship" value="Friendship">Friendship
           <br>
 
-          <label for="politics">political perception:</label>
-          <br>
-          <input type="radio" name="politics" value="right">Right
-          <input type="radio" name="politics" value="left">Left
-          <input type="radio" name="politics" value="DontCare">Dont Care
-          <br>
-          
           <label for="religious">Religious belief:</label>
           <br>
           <input type="radio" name="religious" value="religious">religious

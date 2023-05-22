@@ -7,4 +7,5 @@ router
     .get("/getusers", usersControlls_1.getAllUsers)
     .post("/register", usersControlls_1.addNewUser)
     .post("/login", usersControlls_1.userLogin);
+// .patch("/updatauser", updataUser)
 exports["default"] = router;

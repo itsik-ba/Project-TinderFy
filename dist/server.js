@@ -8,7 +8,6 @@ var cookie_parser_1 = require("cookie-parser");
 app.use(express_1["default"].json());
 require("./data/db");
 app.use(cookie_parser_1["default"]());
-app.use(express_1["default"].static("./public/images"));
 // routes
 var usersRoutes_1 = require("./API/users/usersRoutes");
 app.use("/api/users", usersRoutes_1["default"]);

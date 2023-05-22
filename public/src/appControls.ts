@@ -3,30 +3,37 @@ function createMyCard(event: any) {
   event.preventDefault();
 
   try {
-    const name = event.target.elements.name.value;
     const age = event.target.elements.age.value;
     const gender = event.target.elements.gender.value;
     const location = event.target.elements.location.value;
     const height = event.target.elements.height.value;
-    const weight = event.target.elements.weight.value;
+    const bodytype = event.target.elements.bodytype.value;
     const kids = event.target.elements.kids.value;
-    const intrested = event.target.elements.intrested.value;
+    const smoking = event.target.elements.smoking.value;
+    const education = event.target.elements.education.value;
+    const job = event.target.elements.job.value;
+    const relationship = event.target.elements.relationship.value;
     const info = event.target.elements.info.value;
+    const  religious = event.target.elements. religious.value;
+    
     const userCard = {
-      name,
       age,
       gender,
       location,
       height,
-      weight,
+      bodytype,
       kids,
-      intrested,
+      smoking,
+      education,
+      job,
+      relationship,
+      religious,
       info,
     };
     if (!userCard) throw new Error("cant find userCard Value's");
 
-    fetch("/api/users/", {
-      method: "POST",
+    fetch("/api/users/updatauser", {
+      method: "Patch",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -36,7 +43,7 @@ function createMyCard(event: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        myPreferences();
+        // myPreferences();
       });
   } catch (error) {
     console.error(error);

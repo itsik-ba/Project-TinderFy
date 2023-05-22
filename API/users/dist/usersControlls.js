@@ -82,7 +82,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                 res.cookie("" + name, token, {
                     maxAge: 9000000, httpOnly: true
                 });
-                res.status(201).send({ ok: true });
+                res.status(200).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
@@ -116,3 +116,11 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
+// export const updataUser = async (req: any, res: any) => {
+//   try {
+//     const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
+//     const users = await UserModel.findOneAndUpdate({ age, gender, location })
+//   } catch (error) {
+//     console.error(error)
+//   }
+// };
