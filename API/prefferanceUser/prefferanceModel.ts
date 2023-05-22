@@ -1,37 +1,23 @@
 import mongoose, { Schema } from "mongoose";
-import { UserSchema } from "../users/usersModel";
 
-export interface Prefferance {
-    minHeight:Number, 
-    maxHeight:Number, 
-     minAge:Number,
-     maxAge:Number,
-     bodyType:String,
-     gender:String,
-     kids:String,
-     smoking:String,
-     education:String,
-     relationship:String,
-     religious:String
-}
-
-export const PrefferanceSchema = new Schema({
-    user:{require:true, type:UserSchema},
-    minHeight: {require:true, type:Number},
-    maxHeight: {require:true, type:Number},
-    minAge: {require:true, type:Number},
-    maxAge: {require:true, type:Number},
-    bodyType: {require:true, type:String},
-    gender: {require:true, type:String},
-    kids: {require:true, type:String},
-    smoking: {require:true, type:String},
-    education: {require:true, type:String},
-    relationship: {require:true, type:String},
-    religious: {require:true, type:String}
+export const prefferanceSchema = new Schema({
+     userId:  {require:true, type:String},
+     heightMax: {require:true, type:Number, },
+     heightMin: {require:true, type:Number, },
+     ageMax: {require:true, type:Number,},
+     ageMin: {require:true, type:Number,},
+     bodyType: {require:true, type:String,},
+     gender: {require:true, type:String,},
+     kids: {require:true, type:String,},
+     smoking: {require:true, type:String,},
+     education: {require:true, type:String,},
+     job: {require:true, type:String,},
+     relationship: {require:true, type:String,},
+     religious: {require:true, type:String,},
 });
 
 
-  const PrefferanceModel = mongoose.model("prefferance", PrefferanceSchema)
+  const Prefferance = mongoose.model("prefferance", prefferanceSchema)
 
 
-export default PrefferanceModel;
+export default Prefferance;
