@@ -6,6 +6,6 @@ var usersControlls_1 = require("./usersControlls");
 router
     .get("/getusers", usersControlls_1.getAllUsers)
     .post("/register", usersControlls_1.addNewUser)
-    .post("/login", usersControlls_1.userLogin);
-// .patch("/updatauser", updataUser)
+    .post("/login", usersControlls_1.userLogin)
+    .put("/update", usersControlls_1.updateDeTail);
 exports["default"] = router;

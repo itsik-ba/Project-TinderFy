@@ -14,6 +14,7 @@ app.use("/api/users", usersRoutes_1["default"]);
 var prefferanceRoutes_1 = require("./API/prefferanceUser/prefferanceRoutes");
 app.use("/api/prefferanceUser", prefferanceRoutes_1["default"]);
 app.use(express_1["default"].static("./public"));
+app.use("/css", express_1["default"].static("./public/style/dist"));
 app.listen(3000, function () {
     console.log("server listen at: 3000");
 });
