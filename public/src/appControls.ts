@@ -32,8 +32,8 @@ function createMyCard(event: any) {
     };
     if (!userCard) throw new Error("cant find userCard Value's");
 
-    fetch("/api/users/updatauser", {
-      method: "Patch",
+    fetch("/api/users/update", {
+      method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

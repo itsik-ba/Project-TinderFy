@@ -11,7 +11,6 @@ export const UserSchema = new Schema({
     // usercard
     role: {type:String, enum:["admin", "user"],default:"user"},
     // subscribed:{type:Boolean, default:false, select:false}
-
     age: {type:Number},
     gender: {type:String},
     location: {type:String},
@@ -22,8 +21,8 @@ export const UserSchema = new Schema({
     education: {type:String,},
     job: {type:String},
     relationship: {type:String},
-    info: {type:String,},
-    religious: {type:String,}
+    info: {type:String},
+    religious: {type:String}
 })
 
 

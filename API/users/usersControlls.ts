@@ -53,11 +53,11 @@ export const getAllUsers = async (req: any, res: any) => {
 }
 
 
-// export const updataUser = async (req: any, res: any) => {
-//   try {
-//     const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
-//     const users = await UserModel.findOneAndUpdate({ age, gender, location })
-//   } catch (error) {
-//     console.error(error)
-//   }
-// };
+export const updateDeTail = async (req: any, res: any) => {
+  try {
+    const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
+    const users = await UserModel.findOneAndUpdate({ age, gender, location })
+  } catch (error) {
+    console.error(error)
+  }
+};
