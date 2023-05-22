@@ -41,7 +41,7 @@ function handleLogin(event) {
         if (!name)
             throw new Error("user name is not valid");
         {
-            htmlEror.innerHTML = "Name Error";
+            htmlEror.innerHTML = "Name or Password incorrect";
         }
         if (!password)
             throw new Error("cant find user password");

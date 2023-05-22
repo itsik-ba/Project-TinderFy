@@ -5,7 +5,7 @@ function handleCreatMyForm(){
   
   <div class="wrapper">
   <div class="wrapper__info"></div>
-<div class="container" style="background-image:url(images/mybk.jpg)">
+<div class="container">
   <div class="container__form">
       <div class="container__form__SignIn">
 
@@ -24,9 +24,9 @@ function handleCreatMyForm(){
               </form>
   </div>
             <div class="container__forminfo">
-              <h1 class="container__forminfo__h1">Tinder<span>FY</span></h1>
-              <h2 class="container__forminfo__h2">still Alone, no worry here you can find what you looking for.</h2>
-              <h3 class="container__forminfo__h3">consider our sub for 100% chance, dont stay alone at night</h3>
+            <h1 class="container__forminfo__h1">Tinder<span>FY</span></h1>
+              <h2 class="container__forminfo__h2">Still alone? no worry! <br>here you can find what you looking for.</br></h2>
+              <h4 class="container__forminfo__h4">*Consider our sub for 100% chance, you wont stay alone tonight!</h4>
             </div>
 </div>
 </div>
@@ -38,6 +38,3 @@ function handleCreatMyForm(){
 function handleSignIn(){
   window.location.href = "login.html"
 }
-
-
-
