@@ -8,7 +8,20 @@ exports.UserSchema = new mongoose_1.Schema({
     password: { require: true, type: String },
     email: { require: true, type: String, unique: true },
     // usercard
-    role: { type: String, "enum": ["admin", "user"], "default": "user" }
+    role: { type: String, "enum": ["admin", "user"], "default": "user" },
+    // subscribed:{type:Boolean, default:false, select:false}
+    age: { type: Number },
+    gender: { type: String },
+    location: { type: String },
+    height: { type: Number },
+    bodyType: { type: String },
+    kids: { type: String },
+    smoking: { type: String },
+    education: { type: String },
+    job: { type: String },
+    relationship: { type: String },
+    info: { type: String },
+    religious: { type: String }
 });
 var UserModel = mongoose_1["default"].model("users", exports.UserSchema);
 exports["default"] = UserModel;

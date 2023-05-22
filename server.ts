@@ -16,6 +16,7 @@ import preffranceRoutes from "./API/prefferanceUser/prefferanceRoutes";
 app.use("/api/prefferanceUser", preffranceRoutes)
 
 app.use(express.static("./public"));
+app.use("/css",express.static("./public/style/dist"));
 
 app.listen(3000, ()=>{
     console.log(`server listen at: 3000`)

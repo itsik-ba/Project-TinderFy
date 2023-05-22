@@ -12,18 +12,18 @@ export const UserSchema = new Schema({
     role: {type:String, enum:["admin", "user"],default:"user"},
     // subscribed:{type:Boolean, default:false, select:false}
 
-    // age: {type:Number},
-    // gender: {type:String},
-    // location: {type:String},
-    // height: {type:Number},
-    // bodyType: {type:String},
-    // kids: {type:String},
-    // smoking: {type:String},
-    // education: {type:String,},
-    // job: {type:String},
-    // relationship: {type:String},
-    // info: {type:String,},
-    // religious: {type:String,}
+    age: {type:Number},
+    gender: {type:String},
+    location: {type:String},
+    height: {type:Number},
+    bodyType: {type:String},
+    kids: {type:String},
+    smoking: {type:String},
+    education: {type:String,},
+    job: {type:String},
+    relationship: {type:String},
+    info: {type:String,},
+    religious: {type:String,}
 })
 
 
