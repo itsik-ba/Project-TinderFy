@@ -41,7 +41,7 @@ function handleLogin(event) {
         if (!name)
             throw new Error("user name is not valid");
         {
-            htmlEror.innerHTML = "Name or Password incorrect";
+            htmlEror.innerHTML = "Name Error";
         }
         if (!password)
             throw new Error("cant find user password");
@@ -61,5 +61,38 @@ function handleLogin(event) {
     }
     catch (error) {
         console.error(error);
+    }
+    // the sign - in
+    function handleLogin(event) {
+        event.preventDefault();
+        try {
+            var name = event.target.elements.name.value;
+            var password = event.target.elements.password.value;
+            var userLogin = { name: name, password: password };
+            var htmlEror = document.querySelector("#error");
+            if (!name)
+                throw new Error("user name is not valid");
+            {
+                htmlEror.innerHTML = "Name or Password incorrect";
+            }
+            if (!password)
+                throw new Error("cant find user password");
+            fetch("/api/users/login", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userLogin)
+            })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                console.log(data);
+                window.location.href = "main.html";
+            });
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
 }
