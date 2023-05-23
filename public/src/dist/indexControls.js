@@ -40,9 +40,6 @@ function handleLogin(event) {
         var htmlEror = document.querySelector("#error");
         if (!name)
             throw new Error("user name is not valid");
-        {
-            htmlEror.innerHTML = "Name Error";
-        }
         if (!password)
             throw new Error("cant find user password");
         fetch("/api/users/login", {

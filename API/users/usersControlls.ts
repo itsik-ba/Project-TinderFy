@@ -53,10 +53,11 @@ export const getAllUsers = async (req: any, res: any) => {
 }
 
 
-export const updateDeTail = async (req: any, res: any) => {
+export const updateDetail = async (req: any, res: any) => {
   try {
     const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
-    const users = await UserModel.findOneAndUpdate({ age, gender, location })
+    
+    const users = await UserModel.findOneAndUpdate({ age, gender, location, height, bodyType, kids, smoking,education, job, relationship, info, religious})
   } catch (error) {
     console.error(error)
   }

@@ -43,11 +43,7 @@ function handleLogin(event: any) {
     const password = event.target.elements.password.value;
     const userLogin = { name, password }
     const htmlEror = document.querySelector("#error") as HTMLHeadElement;
-    if (!name) throw new Error("user name is not valid"); {
-
-      htmlEror.innerHTML = "Name Error"
-    }
-
+    if (!name) throw new Error("user name is not valid"); 
     if (!password) throw new Error("cant find user password")
 
 

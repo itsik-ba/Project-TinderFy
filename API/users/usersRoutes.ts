@@ -5,7 +5,7 @@ import {
 userLogin, 
 addNewUser,
 getAllUsers,
-updateDeTail,
+updateDetail,
 // updataUser,
 
 
@@ -15,6 +15,6 @@ router
 .get("/getusers", getAllUsers)
 .post("/register", addNewUser)
 .post("/login", userLogin)
-.put("/update", updateDeTail)
+.put("/update", updateDetail)
 
 export default router

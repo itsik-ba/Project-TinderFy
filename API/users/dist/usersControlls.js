@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateDeTail = exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
+exports.updateDetail = exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -116,14 +116,14 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.updateDeTail = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+exports.updateDetail = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious, users, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, age = _a.age, gender = _a.gender, location = _a.location, height = _a.height, bodyType = _a.bodyType, kids = _a.kids, smoking = _a.smoking, education = _a.education, job = _a.job, relationship = _a.relationship, info = _a.info, religious = _a.religious;
-                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ age: age, gender: gender, location: location })];
+                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ age: age, gender: gender, location: location, height: height, bodyType: bodyType, kids: kids, smoking: smoking, education: education, job: job, relationship: relationship, info: info, religious: religious })];
             case 1:
                 users = _b.sent();
                 return [3 /*break*/, 3];
