@@ -40,13 +40,17 @@ exports.updateDetail = exports.getAllUsers = exports.userLogin = exports.addNewU
 var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
+var bcryptjs_1 = require("bcryptjs");
 exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, email, password, userLogin_1, error_1;
+    var _a, name, email, password, salt, hash, userLogin_1, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, name = _a.name, email = _a.email, password = _a.password;
+                salt = bcryptjs_1["default"].genSaltSync(10);
+                hash = bcryptjs_1["default"].hashSync(password, salt);
+                console.log(hash);
                 return [4 /*yield*/, usersModel_1["default"].create({
                         name: name, email: email, password: password
                     })];
@@ -78,6 +82,7 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                 if (!secret)
                     throw new Error("cant find jwt secret");
                 token = jwt.encode(userLogin_2._id, secret);
+                // res.send({ok:true, login:userPassword})
                 console.log(token);
                 res.cookie("" + name, token, {
                     maxAge: 9000000, httpOnly: true

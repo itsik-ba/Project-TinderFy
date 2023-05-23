@@ -1,14 +1,20 @@
 import UserModel from "./usersModel";
 const jwt: any = require("jwt-simple");
 const secret: string | undefined = process.env.JWT_SECRET;
-
+import bcrypt from "bcryptjs";
 
 export const addNewUser = async (req: any, res: any) => {
   try {
     const { name, email, password } = req.body;
-    const userLogin = await UserModel.create({
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+    console.log(hash) 
+
+   const userLogin = await UserModel.create({
       name, email, password
+
     })
+   
     console.log(userLogin)
     res.status(201).send({ ok: true })
 
@@ -25,7 +31,12 @@ export const userLogin = async (req: any, res: any) => {
     const userLogin = await UserModel.findOne({ name, password })
     if (!userLogin) throw new Error("user name or password is not Valid")
     if (!secret) throw new Error("cant find jwt secret")
+    // const salt = bcrypt.genSaltSync(10);
+    // const hash = bcrypt.hashSync(password, salt);
+    // const userPassword = bcrypt.compareSync(password, hash);
+    // console.log("user password", userPassword)
     const token = jwt.encode(userLogin._id, secret)
+    // res.send({ok:true, login:userPassword})
     console.log(token)
     res.cookie(`${name}`, token, {
       maxAge: 9000000, httpOnly: true
