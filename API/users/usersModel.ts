@@ -1,12 +1,10 @@
 import mongoose, { Schema } from "mongoose"
 
-
-
 export const UserSchema = new Schema({
     // rigester
     name: { require: [true, "user must enter"], type: String },
     password: { require: true, type: String },
-    email: { require: true, type: String, unique: true },
+    email: { require: true, type: String },
 
     // usercard
     role: {type:String, enum:["admin", "user"],default:"user"},
