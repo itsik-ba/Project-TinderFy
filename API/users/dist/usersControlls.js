@@ -68,7 +68,7 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, userLogin_2, token, error_2;
+    var _a, name, password, userLogin_2, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -81,13 +81,6 @@ exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 
                     throw new Error("user name or password is not Valid");
                 if (!secret)
                     throw new Error("cant find jwt secret");
-                token = jwt.encode(userLogin_2._id, secret);
-                // res.send({ok:true, login:userPassword})
-                console.log(token);
-                res.cookie("" + name, token, {
-                    maxAge: 9000000, httpOnly: true
-                });
-                res.status(200).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
