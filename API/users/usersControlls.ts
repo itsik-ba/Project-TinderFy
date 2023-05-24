@@ -12,9 +12,8 @@ export const addNewUser = async (req: any, res: any) => {
     console.log(hash) 
    const userLogin = await UserModel.create({
     
-      name, email, password
+      name, email, password:hash
 })
-
     console.log(userLogin)
     res.status(201).send({ ok: true })
 

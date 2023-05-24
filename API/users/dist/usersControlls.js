@@ -52,7 +52,8 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
                 hash = bcryptjs_1["default"].hashSync(password, salt);
                 console.log(hash);
                 return [4 /*yield*/, usersModel_1["default"].create({
-                        name: name, email: email, password: password
+                        name: name, email: email,
+                        password: hash
                     })];
             case 1:
                 userLogin_1 = _b.sent();
