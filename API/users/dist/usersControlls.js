@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateDetail = exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
+exports.cardUser = exports.updateDetail = exports.getAllUsers = exports.userLogin = exports.addNewUser = void 0;
 var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -129,6 +129,27 @@ exports.updateDetail = function (req, res) { return __awaiter(void 0, void 0, vo
             case 2:
                 error_4 = _b.sent();
                 console.error(error_4);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.cardUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, subscribed, age, gender, userCard, error_5;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, subscribed = _a.subscribed, age = _a.age, gender = _a.gender;
+                return [4 /*yield*/, usersModel_1["default"].find({ name: name, subscribed: subscribed, age: age, gender: gender })];
+            case 1:
+                userCard = _b.sent();
+                res.status(201).send({ ok: true });
+                console.log(userCard);
+                return [3 /*break*/, 3];
+            case 2:
+                error_5 = _b.sent();
+                console.error(error_5);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

@@ -6,7 +6,8 @@ userLogin,
 addNewUser,
 getAllUsers,
 updateDetail,
-// updataUser,
+cardUser,
+
 
 
 } from "./usersControlls";
@@ -16,5 +17,6 @@ router
 .post("/register", addNewUser)
 .post("/login", userLogin)
 .put("/update", updateDetail)
+.post("/main", cardUser)
 
 export default router

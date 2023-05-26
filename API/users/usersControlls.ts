@@ -75,3 +75,15 @@ export const updateDetail = async (req: any, res: any) => {
     console.error(error)
   }
 };
+
+
+export const cardUser = async (req: any, res: any) => {
+  try {
+  const { name, subscribed, age, gender} = req.body
+  const userCard = await UserModel.find({ name, subscribed, age, gender })
+  res.status(201).send({ ok: true })
+  console.log(userCard)
+  } catch (error) {
+    console.error(error)
+  }
+};

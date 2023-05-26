@@ -1,5 +1,27 @@
 function userProfileData(){
-    const html = `
+try {
+
+
+fetch("/api/users/main", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(),
+  })
+    .then((res) => res.json()) 
+    .then((data) => {
+      console.log(data);
+    
+    }) 
+
+    console.log()
+} catch (error) {
+    
+}
+  
+ const html = `
     <div class="mainNav">
     <nav class="navBar">
          <ul class="navBar__ul">
@@ -19,10 +41,10 @@ function userProfileData(){
                 <div class="imageUpload" onclick="imageUpload()"></div>
 
          <div class="userProfileContainer">
-            <p>Name: DATABASE</p>
-            <p>Last Name: DATABASE</p>
-            <p>Age: DATABASE</p>
-            <p>Gender: DATABASE</p>
+            <p>Name:</p>
+            <p>Subscribed:</p>
+            <p>Age: </p>
+            <p>Gender: </p>
             
 
   </div>

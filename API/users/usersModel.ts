@@ -8,7 +8,7 @@ export const UserSchema = new Schema({
 
     // usercard
     role: {type:String, enum:["admin", "user"],default:"user"},
-    // subscribed:{type:Boolean, default:false, select:false}
+    subscribed:{type:Boolean, default:false},
     age: {type:Number},
     gender: {type:String},
     location: {type:String},
