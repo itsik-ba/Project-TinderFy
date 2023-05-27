@@ -21,12 +21,12 @@ function handleRegister(event: any) {
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        window.location.href = "app.html"
-      }) 
-     
+        window.location.href = "app.html?" + "email=" + email
+      })
+
   } catch (error) {
     console.error(error)
   }
@@ -43,7 +43,7 @@ function handleLogin(event: any) {
     const password = event.target.elements.password.value;
     const userLogin = { name, password }
     const htmlEror = document.querySelector("#error") as HTMLHeadElement;
-    if (!name) throw new Error("user name is not valid"); 
+    if (!name) throw new Error("user name is not valid");
     if (!password) throw new Error("cant find user password")
 
 
@@ -71,22 +71,22 @@ function handleLogin(event: any) {
 
   // the sign - in
 
-function handleLogin(event: any){
+  function handleLogin(event: any) {
     event.preventDefault()
     try {
       const name = event.target.elements.name.value;
       const password = event.target.elements.password.value;
-      const userLogin = {name, password}
-      const htmlEror = document.querySelector("#error")as HTMLHeadElement;
-      if(!name)throw new Error("user name is not valid");{
+      const userLogin = { name, password }
+      const htmlEror = document.querySelector("#error") as HTMLHeadElement;
+      if (!name) throw new Error("user name is not valid"); {
 
         htmlEror.innerHTML = "Name or Password incorrect"
       }
-      
-      if(!password)throw new Error("cant find user password")
-        
-      
-       fetch("/api/users/login", {
+
+      if (!password) throw new Error("cant find user password")
+
+
+      fetch("/api/users/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -98,13 +98,13 @@ function handleLogin(event: any){
         .then((data) => {
           console.log(data);
           window.location.href = "main.html"
-         
-          
-      })
-       
+
+
+        })
+
     } catch (error) {
       console.error(error)
     }
-      
+
   }
 }

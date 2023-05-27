@@ -3,12 +3,12 @@ function handleRegister(event) {
     event.preventDefault();
     try {
         var name = event.target.elements.name.value;
-        var email = event.target.elements.email.value;
+        var email_1 = event.target.elements.email.value;
         var password = event.target.elements.password.value;
-        var userLogin = { name: name, email: email, password: password };
+        var userLogin = { name: name, email: email_1, password: password };
         if (!name)
             throw new Error("Name Requierd");
-        if (!email)
+        if (!email_1)
             throw new Error("cant find user email");
         if (!password)
             throw new Error("cant find user password");
@@ -23,7 +23,7 @@ function handleRegister(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "app.html";
+            window.location.href = "app.html?" + "email=" + email_1;
         });
     }
     catch (error) {

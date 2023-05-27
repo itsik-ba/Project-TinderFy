@@ -14,8 +14,12 @@ function createMyCard(event: any) {
     const job = event.target.elements.job.value;
     const relationship = event.target.elements.relationship.value;
     const info = event.target.elements.info.value;
-    const  religious = event.target.elements. religious.value;
-    
+    const religious = event.target.elements.religious.value;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+
+
     const userCard = {
       age,
       gender,
@@ -29,6 +33,7 @@ function createMyCard(event: any) {
       relationship,
       religious,
       info,
+      email,
     };
     if (!userCard) throw new Error("cant find userCard Value's");
 
@@ -107,18 +112,18 @@ function createMyPrefferance(ev: any) {
 
 
 function handlegetMyUser() {
-console.log("get user")
-try {
-  fetch("/api/users/getusers")
-  .then((res) => res.json())
-  .then(({ users }) =>{
-    console.log(users)
-    // userRender(users)
-  })
+  console.log("get user")
+  try {
+    fetch("/api/users/getusers")
+      .then((res) => res.json())
+      .then(({ users }) => {
+        console.log(users)
+        // userRender(users)
+      })
 
 
-} catch (error) {
-  console.error(error)
-}
+  } catch (error) {
+    console.error(error)
+  }
 }
 

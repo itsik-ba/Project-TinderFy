@@ -6,21 +6,21 @@ import bcrypt from "bcryptjs";
 export const addNewUser = async (req: any, res: any) => {
   try {
     const { name, email, password } = req.body;
-   
+
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    console.log(hash) 
-   const userLogin = await UserModel.create({
-    
-      name, email, password:hash
-})
+    console.log(hash)
+    const userLogin = await UserModel.create({
+
+      name, email, password: hash
+    })
     console.log(userLogin)
     res.status(201).send({ ok: true })
 
   } catch (error) {
     console.error(error)
-    }
-   }
+  }
+}
 
 
 
@@ -38,7 +38,7 @@ export const userLogin = async (req: any, res: any) => {
     if (!secret) throw new Error("cant find jwt secret")
 
     // const token = jwt.encode(userLogin._id, secret)
-   
+
     // console.log(token)
     // res.cookie(`${name}`, token, {
     //   maxAge: 9000000, httpOnly: true
@@ -68,9 +68,12 @@ export const getAllUsers = async (req: any, res: any) => {
 
 export const updateDetail = async (req: any, res: any) => {
   try {
-    const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious } = req.body
+    const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious, email } = req.body
+    const users = await UserModel.findOneAndUpdate({ email }, { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious })
     
-    const users = await UserModel.findOneAndUpdate({ age, gender, location, height, bodyType, kids, smoking,education, job, relationship, info, religious})
+    res.status(200).json({
+      status: "ok"
+    })
   } catch (error) {
     console.error(error)
   }
@@ -79,10 +82,10 @@ export const updateDetail = async (req: any, res: any) => {
 
 export const cardUser = async (req: any, res: any) => {
   try {
-  const { name, subscribed, age, gender} = req.body
-  const userCard = await UserModel.find({ name, subscribed, age, gender })
-  res.status(201).send({ ok: true })
-  console.log(userCard)
+    const { name, subscribed, age, gender } = req.body
+    const userCard = await UserModel.find({ name, subscribed, age, gender })
+    res.status(201).send({ ok: true })
+    console.log(userCard)
   } catch (error) {
     console.error(error)
   }

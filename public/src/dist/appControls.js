@@ -14,6 +14,8 @@ function createMyCard(event) {
         var relationship = event.target.elements.relationship.value;
         var info = event.target.elements.info.value;
         var religious = event.target.elements.religious.value;
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email');
         var userCard = {
             age: age,
             gender: gender,
@@ -26,7 +28,8 @@ function createMyCard(event) {
             job: job,
             relationship: relationship,
             religious: religious,
-            info: info
+            info: info,
+            email: email
         };
         if (!userCard)
             throw new Error("cant find userCard Value's");
