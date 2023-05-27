@@ -1,3 +1,4 @@
+
 function userProfileData() {
   try {
 
@@ -24,7 +25,7 @@ function userProfileData() {
 
   }
 
-  function renderProfile(data) {
+  function renderProfile(data: any) {
     const html = `
     <div class="mainNav">
     <nav class="navBar">
