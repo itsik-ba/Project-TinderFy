@@ -44,7 +44,7 @@ function createMyCard(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            // myPreferences();
+            window.location.href = "./main.html";
         });
     }
     catch (error) {
@@ -109,7 +109,6 @@ function handlegetMyUser() {
             .then(function (_a) {
             var users = _a.users;
             console.log(users);
-            // userRender(users)
         });
     }
     catch (error) {

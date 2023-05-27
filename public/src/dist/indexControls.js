@@ -20,9 +20,17 @@ function handleRegister(event) {
             },
             body: JSON.stringify(userLogin)
         })
-            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            console.log(res);
+            if (res.status === 409) {
+                alert("user already exists");
+                throw new Error("user already exists");
+            }
+            else {
+                return res.json();
+            }
+        })
             .then(function (data) {
-            console.log(data);
             window.location.href = "app.html?" + "email=" + email_1;
         });
     }
@@ -34,11 +42,11 @@ function handleRegister(event) {
 function handleLogin(event) {
     event.preventDefault();
     try {
-        var name = event.target.elements.name.value;
+        var email = event.target.elements.name.value;
         var password = event.target.elements.password.value;
-        var userLogin = { name: name, password: password };
+        var userLogin = { email: email, password: password };
         var htmlEror = document.querySelector("#error");
-        if (!name)
+        if (!email)
             throw new Error("user name is not valid");
         if (!password)
             throw new Error("cant find user password");
@@ -50,10 +58,19 @@ function handleLogin(event) {
             },
             body: JSON.stringify(userLogin)
         })
-            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            console.log(res);
+            if (res.status === 401) {
+                alert("email/password incorrect");
+                throw new Error("email/password incorrect");
+            }
+            else {
+                return res.json();
+            }
+        })
             .then(function (data) {
             console.log(data);
-            window.location.href = "main.html";
+            window.location.href = "./main.html";
         });
     }
     catch (error) {

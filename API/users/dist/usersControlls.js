@@ -41,16 +41,15 @@ var usersModel_1 = require("./usersModel");
 var jwt = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
 var bcryptjs_1 = require("bcryptjs");
+var salt = bcryptjs_1["default"].genSaltSync(10);
 exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, email, password, salt, hash, userLogin_1, error_1;
+    var _a, name, email, password, hash, userLogin_1, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, name = _a.name, email = _a.email, password = _a.password;
-                salt = bcryptjs_1["default"].genSaltSync(10);
                 hash = bcryptjs_1["default"].hashSync(password, salt);
-                console.log(hash);
                 return [4 /*yield*/, usersModel_1["default"].create({
                         name: name, email: email,
                         password: hash
@@ -62,6 +61,9 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();
+                if (error_1.code === 11000) {
+                    res.status(409).send({ ok: false, error: "user already exists" });
+                }
                 console.error(error_1);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
@@ -69,19 +71,27 @@ exports.addNewUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.userLogin = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, userLogin_2, error_2;
+    var _a, email, password, userLogin_2, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, password = _a.password;
-                return [4 /*yield*/, usersModel_1["default"].findOne({ name: name, password: password })];
+                _a = req.body, email = _a.email, password = _a.password;
+                password = bcryptjs_1["default"].hashSync(password, salt);
+                return [4 /*yield*/, usersModel_1["default"].findOne({ email: email, password: password })];
             case 1:
                 userLogin_2 = _b.sent();
-                if (!userLogin_2)
-                    throw new Error("user name or password is not Valid");
-                if (!secret)
-                    throw new Error("cant find jwt secret");
+                if (!userLogin_2) {
+                    res.status(401).send({ ok: false });
+                }
+                else {
+                    token = jwt.encode(userLogin_2._id, secret);
+                    console.log(token);
+                    res.cookie("" + email, token, {
+                        maxAge: 9000000, httpOnly: true
+                    });
+                    res.status(200).send({ ok: true });
+                }
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();

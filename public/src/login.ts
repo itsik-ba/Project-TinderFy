@@ -1,7 +1,7 @@
 // the sign in function
-function myLogin(){
- 
-    const html = `
+function myLogin() {
+
+  const html = `
    
     <div class="wrapper">
     <div class="wrapper__info"></div>
@@ -13,7 +13,7 @@ function myLogin(){
   
         <form onsubmit= "handleLogin(event)" class="registerForm"> 
         <h2 class="registerForm__h2">Sign In Here</h2>
-        <label class="registerForm__label" for="name">Name:</label>
+        <label class="registerForm__label" for="name">Email:</label>
         <input class="registerForm__input"  type="text" name="name" placeholder="enter name">
          <label class="registerForm__label"  for="password">Password:</label>
             <input class="registerForm__input" type="password" name="password" placeholder="enter password">
@@ -26,13 +26,13 @@ function myLogin(){
 </div>
 
     `
-    const body = document.querySelector("body")as HTMLBodyElement;
-    body.innerHTML = html
-    
-  }
-  
+  const body = document.querySelector("body") as HTMLBodyElement;
+  body.innerHTML = html
 
-  function moveToRegister(){
+}
 
-    window.location.href = "index.html"
-  }
+
+function moveToRegister() {
+
+  window.location.href = "index.html"
+}

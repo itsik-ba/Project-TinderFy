@@ -21,9 +21,16 @@ function handleRegister(event: any) {
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res)
+        if (res.status === 409) {
+          alert("user already exists")
+          throw new Error("user already exists");
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
-        console.log(data);
         window.location.href = "app.html?" + "email=" + email
       })
 
@@ -39,11 +46,11 @@ function handleRegister(event: any) {
 function handleLogin(event: any) {
   event.preventDefault()
   try {
-    const name = event.target.elements.name.value;
+    const email = event.target.elements.name.value;
     const password = event.target.elements.password.value;
-    const userLogin = { name, password }
+    const userLogin = { email, password }
     const htmlEror = document.querySelector("#error") as HTMLHeadElement;
-    if (!name) throw new Error("user name is not valid");
+    if (!email) throw new Error("user name is not valid");
     if (!password) throw new Error("cant find user password")
 
 
@@ -55,12 +62,19 @@ function handleLogin(event: any) {
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res)
+        if (res.status === 401) {
+          alert("email/password incorrect")
+          throw new Error("email/password incorrect");
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
         console.log(data);
-        window.location.href = "main.html"
 
-
+        window.location.href = "./main.html"
       })
 
   } catch (error) {

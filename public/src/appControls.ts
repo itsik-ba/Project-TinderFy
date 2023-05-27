@@ -48,7 +48,7 @@ function createMyCard(event: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        // myPreferences();
+        window.location.href = "./main.html"
       });
   } catch (error) {
     console.error(error);
@@ -118,7 +118,6 @@ function handlegetMyUser() {
       .then((res) => res.json())
       .then(({ users }) => {
         console.log(users)
-        // userRender(users)
       })
 
 
