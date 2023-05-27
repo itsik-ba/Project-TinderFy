@@ -21,7 +21,7 @@ export const addNewUser = async (req: any, res: any) => {
       res.status(409).send({ ok: false, error: `user already exists` });
     }
     console.error(error)
-    }
+  }
 }
 
 export const userLogin = async (req: any, res: any) => {
@@ -78,9 +78,9 @@ export const updateDetail = async (req: any, res: any) => {
 
 export const cardUser = async (req: any, res: any) => {
   try {
-    const { name, subscribed, age, gender } = req.body
-    const userCard = await UserModel.find({ name, subscribed, age, gender })
-    res.status(201).send({ ok: true })
+    const { email } = req.body
+    const userCard = await UserModel.find({ email })
+    res.status(200).send({ userCard })
     console.log(userCard)
   } catch (error) {
     console.error(error)

@@ -48,7 +48,7 @@ function createMyCard(event: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        window.location.href = "./main.html"
+        window.location.href = "./main.html?" + "email=" + email
       });
   } catch (error) {
     console.error(error);

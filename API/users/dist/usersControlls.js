@@ -148,20 +148,20 @@ exports.updateDetail = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.cardUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, subscribed, age, gender, userCard, error_5;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var email, userCard, error_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, subscribed = _a.subscribed, age = _a.age, gender = _a.gender;
-                return [4 /*yield*/, usersModel_1["default"].find({ name: name, subscribed: subscribed, age: age, gender: gender })];
+                _a.trys.push([0, 2, , 3]);
+                email = req.body.email;
+                return [4 /*yield*/, usersModel_1["default"].find({ email: email })];
             case 1:
-                userCard = _b.sent();
-                res.status(201).send({ ok: true });
+                userCard = _a.sent();
+                res.status(200).send({ userCard: userCard });
                 console.log(userCard);
                 return [3 /*break*/, 3];
             case 2:
-                error_5 = _b.sent();
+                error_5 = _a.sent();
                 console.error(error_5);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];

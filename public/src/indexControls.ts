@@ -74,7 +74,7 @@ function handleLogin(event: any) {
       .then((data) => {
         console.log(data);
 
-        window.location.href = "./main.html"
+        window.location.href = "./main.html?" + "email=" + email
       })
 
   } catch (error) {

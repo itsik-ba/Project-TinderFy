@@ -42,11 +42,11 @@ function handleRegister(event) {
 function handleLogin(event) {
     event.preventDefault();
     try {
-        var email = event.target.elements.name.value;
+        var email_2 = event.target.elements.name.value;
         var password = event.target.elements.password.value;
-        var userLogin = { email: email, password: password };
+        var userLogin = { email: email_2, password: password };
         var htmlEror = document.querySelector("#error");
-        if (!email)
+        if (!email_2)
             throw new Error("user name is not valid");
         if (!password)
             throw new Error("cant find user password");
@@ -70,7 +70,7 @@ function handleLogin(event) {
         })
             .then(function (data) {
             console.log(data);
-            window.location.href = "./main.html";
+            window.location.href = "./main.html?" + "email=" + email_2;
         });
     }
     catch (error) {

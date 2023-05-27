@@ -15,7 +15,7 @@ function createMyCard(event) {
         var info = event.target.elements.info.value;
         var religious = event.target.elements.religious.value;
         var urlParams = new URLSearchParams(window.location.search);
-        var email = urlParams.get('email');
+        var email_1 = urlParams.get('email');
         var userCard = {
             age: age,
             gender: gender,
@@ -29,7 +29,7 @@ function createMyCard(event) {
             relationship: relationship,
             religious: religious,
             info: info,
-            email: email
+            email: email_1
         };
         if (!userCard)
             throw new Error("cant find userCard Value's");
@@ -44,7 +44,7 @@ function createMyCard(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "./main.html";
+            window.location.href = "./main.html?" + "email=" + email_1;
         });
     }
     catch (error) {

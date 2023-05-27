@@ -1,26 +1,31 @@
-function userProfileData(){
-try {
+function userProfileData() {
+  try {
 
-fetch("/api/users/main", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userCard),
-  })
-    .then((res) => res.json()) 
-    .then((data) => {
-      console.log(data);
-    
-    }) 
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+
+    fetch("/api/users/main", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        renderProfile(data["userCard"][0])
+
+      })
 
     console.log()
-} catch (error) {
-    
-}
-  
- const html = `
+  } catch (error) {
+
+  }
+
+  function renderProfile(data) {
+    const html = `
     <div class="mainNav">
     <nav class="navBar">
          <ul class="navBar__ul">
@@ -40,16 +45,19 @@ fetch("/api/users/main", {
                 <div class="imageUpload" onclick="imageUpload()"></div>
 
          <div class="userProfileContainer">
-            <p>Name:</p>
-            <p>Subscribed:</p>
-            <p>Age: </p>
-            <p>Gender: </p>
+            <p>Name:${data.name}</p>
+            <p>Subscribed: ${data.subscribed}</p>
+            <p>Age: ${data.age}</p>
+            <p>Gender: ${data.gender}</p>
             
-
+            </div>
   </div>
 
       `
-      const body = document.querySelector("body")as HTMLBodyElement;
-      body.innerHTML = html;
+    const body = document.querySelector("body") as HTMLBodyElement;
+    body.innerHTML = html;
   }
-  
+
+
+}
+
