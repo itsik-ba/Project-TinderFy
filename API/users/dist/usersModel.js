@@ -6,7 +6,7 @@ exports.UserSchema = new mongoose_1.Schema({
     // rigester
     name: { require: [true, "user must enter"], type: String },
     password: { require: true, type: String },
-    email: { require: true, type: String },
+    email: { require: true, type: String, unique: true },
     // usercard
     role: { type: String, "enum": ["admin", "user"], "default": "user" },
     subscribed: { type: Boolean, "default": false },
