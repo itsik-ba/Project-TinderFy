@@ -30,8 +30,8 @@ function userProfileData() {
     <div class="mainNav">
     <nav class="navBar">
          <ul class="navBar__ul">
-             <li class="navBar__ul__li">Info</li>
-             <li class="navBar__ul__li">Finde Match</li>
+             <li class="navBar__ul__li" id="info">Info</li>
+             <li class="navBar__ul__li">Find Match</li>
              <li class="navBar__ul__li">Messages</li>
              <li class="navBar__ul__li">Subscribe</li>
          </ul>

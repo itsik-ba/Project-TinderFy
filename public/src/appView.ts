@@ -103,11 +103,12 @@ function myPreferences() {
         <h2>Now we will ask you about your preferences</h2>
         <h3>Your preferences will affect the adjustments you receive</h3>
         <form onsubmit="createMyPrefferance(event)">
+        
           <label for="height">prefferd height:</label>
           <br>
-          <input type="radio" name="height" value="Tall">very tall - 1.80+
+          <input type="radio" name="height" value="tall">very tall - 1.80+
           <input type="radio" name="height" value="avarage">average height - 1.70 / 1.79 
-          <input type="radio" name="height" value="Short"> - 1.55 / 1.69
+          <input type="radio" name="height" value="short"> - 1.55 / 1.69
           <br>
 
           <label for="bodytype">prefferd body:</label>

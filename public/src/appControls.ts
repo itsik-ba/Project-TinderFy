@@ -47,8 +47,9 @@ function createMyCard(event: any) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        window.location.href = "./main.html?" + "email=" + email
+        console.log(data); 
+        myPreferences()
+      //  window.location.href = "./main.html?" + "email=" + email
       });
   } catch (error) {
     console.error(error);
@@ -64,6 +65,7 @@ function createMyPrefferance(ev: any) {
     console.log("createMyPrefferance");
     const elms = ev.target.elements;
     console.log(elms)
+
     const height = elms.height.value;
     const bodytype = elms.bodytype.value;
     const kids = elms.kids.value;
@@ -72,7 +74,6 @@ function createMyPrefferance(ev: any) {
     const education = elms.education.value;
     const job = elms.job.value;
     const relationship = elms.relationship.value;
-    const politics = elms.politics.value;
     const religious = elms.religious.value;
     const userPreffrance = {
       height,
@@ -83,7 +84,6 @@ function createMyPrefferance(ev: any) {
       education,
       job,
       relationship,
-      politics,
       religious,
     };
 

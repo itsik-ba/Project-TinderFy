@@ -15,7 +15,7 @@ function createMyCard(event) {
         var info = event.target.elements.info.value;
         var religious = event.target.elements.religious.value;
         var urlParams = new URLSearchParams(window.location.search);
-        var email_1 = urlParams.get('email');
+        var email = urlParams.get('email');
         var userCard = {
             age: age,
             gender: gender,
@@ -29,7 +29,7 @@ function createMyCard(event) {
             relationship: relationship,
             religious: religious,
             info: info,
-            email: email_1
+            email: email
         };
         if (!userCard)
             throw new Error("cant find userCard Value's");
@@ -44,7 +44,8 @@ function createMyCard(event) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "./main.html?" + "email=" + email_1;
+            myPreferences();
+            //  window.location.href = "./main.html?" + "email=" + email
         });
     }
     catch (error) {
@@ -65,7 +66,6 @@ function createMyPrefferance(ev) {
         var education = elms.education.value;
         var job = elms.job.value;
         var relationship = elms.relationship.value;
-        var politics = elms.politics.value;
         var religious = elms.religious.value;
         var userPreffrance = {
             height: height,
@@ -76,7 +76,6 @@ function createMyPrefferance(ev) {
             education: education,
             job: job,
             relationship: relationship,
-            politics: politics,
             religious: religious
         };
         console.log(userPreffrance);
