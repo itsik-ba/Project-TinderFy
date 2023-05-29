@@ -33,9 +33,16 @@ function creatProfile() {
             <input class="input" type="number" name="height">
             <br>
 
-            <label class="label" for="bodytype">what is your bodyType:</label>
+            <label class="label" for="bodytype-list">what is your bodyType:</label>
             <br>
-            <input class="input" type="number" name="bodytype">
+            <input list="bodytype-list" name="bodytype-list" class="input">
+            <datalist id="bodytype-list">
+                <option value="small">
+                <option value="medium">
+                <option value="large">
+                <option value="x-large">
+                <option value="all">
+            </datalist>
             <br>
 
             <label for="kids">do you have kids:</label>
