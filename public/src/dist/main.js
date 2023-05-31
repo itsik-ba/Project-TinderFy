@@ -25,3 +25,9 @@ function userProfileData() {
         body.innerHTML = html;
     }
 }
+function renderProfiles() {
+    try {
+    }
+    catch (error) {
+    }
+}

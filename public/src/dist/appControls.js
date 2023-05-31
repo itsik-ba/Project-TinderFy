@@ -58,23 +58,27 @@ function createMyPrefferance(ev) {
         console.log("createMyPrefferance");
         var elms = ev.target.elements;
         console.log(elms);
-        var height = elms.height.value;
+        var minHeight = elms.minimumHeight.value;
+        var maxHeight = elms.minimumHeight.value;
+        var minAge = elms.minimumAge.value;
+        var maxAge = elms.maximumAge.value;
         var bodytype = elms.bodytype.value;
+        var gender = elms.gender.value;
         var kids = elms.kids.value;
         var smoking = elms.smoking.value;
-        var hangout = elms.hangout.value;
         var education = elms.education.value;
-        var job = elms.job.value;
         var relationship = elms.relationship.value;
         var religious = elms.religious.value;
         var userPreffrance = {
-            height: height,
+            minHeight: minHeight,
+            maxHeight: maxHeight,
+            minAge: minAge,
+            maxAge: maxAge,
             bodytype: bodytype,
+            gender: gender,
             kids: kids,
             smoking: smoking,
-            hangout: hangout,
             education: education,
-            job: job,
             relationship: relationship,
             religious: religious
         };
@@ -93,7 +97,7 @@ function createMyPrefferance(ev) {
             .then(function (data) {
             console.log(data);
             console.log("signin lets go");
-            window.location.href = "./login.html";
+            window.location.href = "login.html";
         });
     }
     catch (error) {

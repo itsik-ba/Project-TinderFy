@@ -66,23 +66,27 @@ function createMyPrefferance(ev: any) {
     const elms = ev.target.elements;
     console.log(elms)
 
-    const height = elms.height.value;
+    const minHeight = elms.minimumHeight.value;
+    const maxHeight = elms.minimumHeight.value;
+    const minAge = elms.minimumAge.value;
+    const maxAge = elms.maximumAge.value;
     const bodytype = elms.bodytype.value;
+    const gender = elms.gender.value;
     const kids = elms.kids.value;
     const smoking = elms.smoking.value;
-    const hangout = elms.hangout.value;
     const education = elms.education.value;
-    const job = elms.job.value;
     const relationship = elms.relationship.value;
     const religious = elms.religious.value;
     const userPreffrance = {
-      height,
+      minHeight,
+      maxHeight,
+      minAge,
+      maxAge,
       bodytype,
+      gender,
       kids,
       smoking,
-      hangout,
       education,
-      job,
       relationship,
       religious,
     };
@@ -103,7 +107,7 @@ function createMyPrefferance(ev: any) {
       .then((data) => {
         console.log(data);
         console.log("signin lets go");
-        window.location.href = "./login.html";
+        window.location.href = "login.html";
       });
   } catch (error) {
     console.error(error)
