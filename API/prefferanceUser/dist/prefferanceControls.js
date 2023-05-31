@@ -36,28 +36,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.userPrefferance = void 0;
+exports.addNewuserPrefferance = void 0;
 var prefferanceModel_1 = require("../prefferanceUser/prefferanceModel");
-exports.userPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, height, bodyType, kids, smoking, hangout, education, job, relationship, politics, religious, userPreffer, error_1;
+var usersModel_1 = require("../users/usersModel");
+exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, user, userId, userPreffer, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, height = _a.height, bodyType = _a.bodyType, kids = _a.kids, smoking = _a.smoking, hangout = _a.hangout, education = _a.education, job = _a.job, relationship = _a.relationship, politics = _a.politics, religious = _a.religious;
-                return [4 /*yield*/, prefferanceModel_1["default"].create({
-                        height: height, bodyType: bodyType, kids: kids, smoking: smoking, hangout: hangout, education: education, job: job, relationship: relationship, politics: politics, religious: religious
-                    })];
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, bodyType = _a.bodyType, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious, email = _a.email;
+                return [4 /*yield*/, usersModel_1["default"].findOne(email, { email: email })];
             case 1:
+                user = _b.sent();
+                if (!user)
+                    throw new Error("no user found");
+                userId = user._id;
+                console.log(userId);
+                return [4 /*yield*/, prefferanceModel_1["default"].create({
+                        userId: userId,
+                        minHeight: minHeight,
+                        maxHeight: maxHeight,
+                        minAge: minAge,
+                        maxAge: maxAge,
+                        bodyType: bodyType,
+                        gender: gender,
+                        kids: kids,
+                        smoking: smoking,
+                        education: education,
+                        relationship: relationship,
+                        religious: religious
+                    })];
+            case 2:
                 userPreffer = _b.sent();
                 console.log(userPreffer);
                 res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
-            case 2:
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _b.sent();
+                if (error_1.code === 11000) {
+                    res
+                        .status(409)
+                        .send({ ok: false, error: "prefferance to this user already exists" });
+                }
                 console.error(error_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

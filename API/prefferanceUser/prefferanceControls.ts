@@ -1,18 +1,48 @@
 import Prefferance from "../prefferanceUser/prefferanceModel";
+import UserModel from "../users/usersModel";
 
-
-export const userPrefferance = async (req:any, res:any)=>{
-    try {
-      const { height, bodyType, kids, smoking, hangout, education, job, relationship, politics, religious } = req.body;
+export const addNewuserPrefferance = async (req: any, res: any) => {
+  try {
+    const {
+      minHeight,
+      maxHeight,
+      minAge,
+      maxAge,
+      bodyType,
+      gender,
+      kids,
+      smoking,
+      education,
+      relationship,
+      religious,
+      email,
+    } = req.body;
+    const user = await UserModel.findOne(email, { email });
+    if (!user) throw new Error("no user found");
+    const userId = user._id;
+    console.log(userId);
     const userPreffer = await Prefferance.create({
-        height, bodyType, kids, smoking, hangout, education, job, relationship, politics, religious })
-     console.log(userPreffer)
-    res.status(201).send({ok:true})
-
-    } catch (error) {
-      console.error(error)
+      userId,
+      minHeight,
+      maxHeight,
+      minAge,
+      maxAge,
+      bodyType,
+      gender,
+      kids,
+      smoking,
+      education,
+      relationship,
+      religious,
+    });
+    console.log(userPreffer);
+    res.status(201).send({ ok: true });
+  } catch (error) {
+    if ((error as { code: number }).code === 11000) {
+      res
+        .status(409)
+        .send({ ok: false, error: `prefferance to this user already exists` });
     }
-   
+    console.error(error);
   }
-
-
+};

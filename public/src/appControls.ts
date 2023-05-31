@@ -1,4 +1,5 @@
-// fetch all the info from the form
+// fetch all the info from the for
+
 function createMyCard(event: any) {
   event.preventDefault();
 
@@ -77,6 +78,8 @@ function createMyPrefferance(ev: any) {
     const education = elms.education.value;
     const relationship = elms.relationship.value;
     const religious = elms.religious.value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
     const userPreffrance = {
       minHeight,
       maxHeight,
@@ -89,6 +92,7 @@ function createMyPrefferance(ev: any) {
       education,
       relationship,
       religious,
+      email
     };
 
     console.log(userPreffrance);
