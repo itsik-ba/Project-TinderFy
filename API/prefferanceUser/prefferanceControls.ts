@@ -17,9 +17,9 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
       religious,
       email,
     } = req.body;
-    const user = await UserModel.findOne(email, { email });
-    if (!user) throw new Error("no user found");
-    const userId = user._id;
+    const userDB = await UserModel.findOne({email});
+    if (!userDB) throw new Error("no user found");
+    const userId = userDB._id;
     console.log(userId);
     const userPreffer = await Prefferance.create({
       userId,

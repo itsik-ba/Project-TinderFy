@@ -40,18 +40,18 @@ exports.addNewuserPrefferance = void 0;
 var prefferanceModel_1 = require("../prefferanceUser/prefferanceModel");
 var usersModel_1 = require("../users/usersModel");
 exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, user, userId, userPreffer, error_1;
+    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, userDB, userId, userPreffer, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 3, , 4]);
                 _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, bodyType = _a.bodyType, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious, email = _a.email;
-                return [4 /*yield*/, usersModel_1["default"].findOne(email, { email: email })];
+                return [4 /*yield*/, usersModel_1["default"].findOne({ email: email })];
             case 1:
-                user = _b.sent();
-                if (!user)
+                userDB = _b.sent();
+                if (!userDB)
                     throw new Error("no user found");
-                userId = user._id;
+                userId = userDB._id;
                 console.log(userId);
                 return [4 /*yield*/, prefferanceModel_1["default"].create({
                         userId: userId,
