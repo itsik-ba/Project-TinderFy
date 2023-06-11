@@ -27,7 +27,7 @@ function userProfileData() {
 
   function renderProfile(data: any) {
     const html = `
-    <div class="mainNav">
+  <div class="mainNav">
     <nav class="navBar">
          <ul class="navBar__ul">
              <li class="navBar__ul__li" id="info">Info</li>
@@ -44,17 +44,24 @@ function userProfileData() {
                 <div class="edit" onclick="editUser()"></div>
                 <div class="delete" onclick="deleteUser()"></div>
                 <div class="imageUpload" onclick="imageUpload()"></div>
-
+      </div>
          <div class="userProfileContainer">
             <p>Name:${data.name}</p>
             <p>Subscribed: ${data.subscribed}</p>
             <p>Age: ${data.age}</p>
             <p>Gender: ${data.gender}</p>
-            
-            </div>
+          </div>
+
   </div>
 
-      `
+
+
+
+
+`
+
+
+      
     const body = document.querySelector("body") as HTMLBodyElement;
     body.innerHTML = html;
   }
@@ -62,11 +69,8 @@ function userProfileData() {
 
 }
 
-function renderProfiles(){
-  try {
-    
-  } catch (error) {
-    
-  }
-}
+function renderAllProfile(){
 
+
+
+}

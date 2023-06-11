@@ -73,7 +73,7 @@ function handleLogin(event: any) {
       })
       .then((data) => {
         console.log(data);
-
+          
         window.location.href = "./main.html?" + "email=" + email
       })
 
