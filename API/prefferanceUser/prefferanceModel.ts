@@ -2,7 +2,6 @@ import mongoose, { Schema } from "mongoose";
 import { UserSchema } from "../users/usersModel";
 
 export interface Prefferance {
-  userId: String,  
   minHeight:Number, 
     maxHeight:Number, 
      minAge:Number,
@@ -13,11 +12,11 @@ export interface Prefferance {
      smoking:String,
      education:String,
      relationship:String,
-     religious:String
+     religious:String,
+     userId?: String
 }
 
 export const PrefferanceSchema = new Schema({
-    userId:{require:true, type:String},
     minHeight: {require:true, type:Number},
     maxHeight: {require:true, type:Number},
     minAge: {require:true, type:Number},
@@ -28,7 +27,8 @@ export const PrefferanceSchema = new Schema({
     smoking: {require:true, type:String},
     education: {require:true, type:String},
     relationship: {require:true, type:String},
-    religious: {require:true, type:String}
+    religious: {require:true, type:String},
+    userId:{type:String}
 });
 
 

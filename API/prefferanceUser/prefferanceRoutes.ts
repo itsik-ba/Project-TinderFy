@@ -3,6 +3,7 @@ const router = express.Router();
 
 import{
     addNewuserPrefferance,
+    getUserId
 
 
 }from "./prefferanceControls";
@@ -10,7 +11,8 @@ import{
 
 
 router
-.post("/prefferance", addNewuserPrefferance)
+.post("/addPrefferance", addNewuserPrefferance)
+.get("/getId", getUserId)
 
 
 export default router;

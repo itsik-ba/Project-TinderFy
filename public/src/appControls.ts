@@ -60,13 +60,15 @@ function createMyCard(event: any) {
 
 
 
-function createMyPrefferance(ev: any) {
+function createMyPrefferance(ev:any) {
   try {
     ev.preventDefault();
     console.log("createMyPrefferance");
     const elms = ev.target.elements;
     console.log(elms)
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
     const minHeight = elms.minimumHeight.value;
     const maxHeight = elms.minimumHeight.value;
     const minAge = elms.minimumAge.value;
@@ -78,8 +80,7 @@ function createMyPrefferance(ev: any) {
     const education = elms.education.value;
     const relationship = elms.relationship.value;
     const religious = elms.religious.value;
-    const urlParams = new URLSearchParams(window.location.search);
-    const email = urlParams.get('email');
+    
     const userPreffrance = {
       minHeight,
       maxHeight,
@@ -99,7 +100,7 @@ function createMyPrefferance(ev: any) {
 
     if (!userPreffrance) throw new Error("cant find user prefferance");
 
-    fetch("/api/prefferanceUser/prefferance", {
+    fetch("/api/prefferanceUser/addPrefferance", {
       method: "POST",
       headers: {
         Accept: "application/json",

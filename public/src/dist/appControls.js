@@ -58,6 +58,8 @@ function createMyPrefferance(ev) {
         console.log("createMyPrefferance");
         var elms = ev.target.elements;
         console.log(elms);
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email');
         var minHeight = elms.minimumHeight.value;
         var maxHeight = elms.minimumHeight.value;
         var minAge = elms.minimumAge.value;
@@ -69,8 +71,6 @@ function createMyPrefferance(ev) {
         var education = elms.education.value;
         var relationship = elms.relationship.value;
         var religious = elms.religious.value;
-        var urlParams = new URLSearchParams(window.location.search);
-        var email = urlParams.get('email');
         var userPreffrance = {
             minHeight: minHeight,
             maxHeight: maxHeight,
@@ -88,7 +88,7 @@ function createMyPrefferance(ev) {
         console.log(userPreffrance);
         if (!userPreffrance)
             throw new Error("cant find user prefferance");
-        fetch("/api/prefferanceUser/prefferance", {
+        fetch("/api/prefferanceUser/addPrefferance", {
             method: "POST",
             headers: {
                 Accept: "application/json",
