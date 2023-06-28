@@ -42,13 +42,13 @@ function creatProfile() {
 
             <label class="label" for="kids">do you have kids:</label>
             <br>
-            <input class="inputRadio" type="radio" name="kids" value="ido">I do
+            <input class="inputRadio" type="radio" name="kids" value="yes">yes
             <input class="inputRadio" type="radio" name="kids" value="no">no kids
             <br>
 
             <label class="label" for="smoking">are you smoking:</label>
             <br>
-            <input class="inputRadio" type="radio" name="smoking" value="ido">I do
+            <input class="inputRadio" type="radio" name="smoking" value="yes">yes
             <input class="inputRadio" type="radio" name="smoking" value="no">no 
             <br>
 

@@ -40,14 +40,21 @@ exports.getUserId = exports.addNewuserPrefferance = void 0;
 var prefferanceModel_1 = require("../prefferanceUser/prefferanceModel");
 var usersModel_1 = require("../users/usersModel");
 exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, userId, userPreffer, error_1;
+    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, userDB, userId, userPreffer, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, bodyType = _a.bodyType, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious;
-                userId = exports.getUserId(req, res);
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, bodyType = _a.bodyType, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious, email = _a.email;
+                return [4 /*yield*/, usersModel_1["default"].findOne({ email: email })];
+            case 1:
+                userDB = _b.sent();
+                if (!userDB)
+                    throw new Error("no user found");
+                userId = userDB._id.toString();
+                console.log(userId);
                 return [4 /*yield*/, prefferanceModel_1["default"].create({
+                        userId: userId,
                         minHeight: minHeight,
                         maxHeight: maxHeight,
                         minAge: minAge,
@@ -58,15 +65,14 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                         smoking: smoking,
                         education: education,
                         relationship: relationship,
-                        religious: religious,
-                        userId: userId
+                        religious: religious
                     })];
-            case 1:
+            case 2:
                 userPreffer = _b.sent();
                 console.log("prefferance added");
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
-            case 2:
+                res.status(201).send({ ok: true, userPreffer: userPreffer });
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _b.sent();
                 if (error_1.code === 11000) {
                     res
@@ -74,8 +80,8 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                         .send({ ok: false, error: "prefferance to this user already exists" });
                 }
                 console.error(error_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
@@ -97,9 +103,9 @@ exports.getUserId = function (req, res) { return __awaiter(void 0, void 0, void 
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                if (error_2.code === 11000) {
+                if (error_2.code === 434) {
                     res
-                        .status(409)
+                        .status(204)
                         .send({ ok: false, error: "no user found" });
                 }
                 console.error(error_2);

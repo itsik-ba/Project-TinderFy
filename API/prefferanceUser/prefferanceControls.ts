@@ -1,5 +1,4 @@
 import PrefferanceModel from "../prefferanceUser/prefferanceModel";
-import Prefferance from "../prefferanceUser/prefferanceModel";
 import UserModel from "../users/usersModel";
 
 export const addNewuserPrefferance = async (req: any, res: any) => {
@@ -16,9 +15,17 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
         education,
         relationship,
         religious,
+        email
       } = req.body;
-      const userId= getUserId(req,res);
+
+
+          const userDB = await UserModel.findOne({email});
+          if (!userDB) throw new Error("no user found");
+          const userId = userDB._id.toString();
+          console.log(userId);
+          
     const userPreffer = await PrefferanceModel.create({
+      userId,
       minHeight,
       maxHeight,
       minAge,
@@ -29,11 +36,10 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
       smoking,
       education,
       relationship,
-      religious,
-      userId
+      religious
     });
-    console.log("prefferance added");
-    res.status(201).send({ ok: true });
+    console.log("prefferance added");  
+    res.status(201).send({ ok: true })
   } catch (error) {
     if ((error as { code: number }).code === 11000) {
       res
@@ -43,21 +49,3 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
     console.error(error);
   }
 }
-
-export const getUserId = async (req: any, res: any) => {
-  try {
-    const {email} = req.body;
-    const userDB = await UserModel.findOne({email});
-    if (!userDB) throw new Error("no user found");
-    const userId = userDB._id.toString();
-    console.log(userId);
-    res.send (userId);
-  } catch (error){
-      if ((error as { code: number }).code === 11000) {
-        res
-          .status(409)
-          .send({ ok: false, error: `no user found` });
-      }
-      console.error(error);
-    }
-    }

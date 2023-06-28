@@ -70,7 +70,7 @@ function createMyPrefferance(ev:any) {
     const urlParams = new URLSearchParams(window.location.search);
     const email = urlParams.get('email');
     const minHeight = elms.minimumHeight.value;
-    const maxHeight = elms.minimumHeight.value;
+    const maxHeight = elms.maximumHeight.value;
     const minAge = elms.minimumAge.value;
     const maxAge = elms.maximumAge.value;
     const bodytype = elms.bodytype.value;
