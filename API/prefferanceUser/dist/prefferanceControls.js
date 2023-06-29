@@ -36,8 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUserId = exports.addNewuserPrefferance = void 0;
-var prefferanceModel_1 = require("../prefferanceUser/prefferanceModel");
+exports.addNewuserPrefferance = void 0;
+var prefferanceModel_1 = require("./prefferanceModel");
 var usersModel_1 = require("../users/usersModel");
 exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, userDB, userId, userPreffer, error_1;
@@ -69,8 +69,8 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                     })];
             case 2:
                 userPreffer = _b.sent();
-                console.log("prefferance added");
-                res.status(201).send({ ok: true, userPreffer: userPreffer });
+                console.log(userPreffer, "prefferance added");
+                res.status(201).send({ ok: true });
                 return [3 /*break*/, 4];
             case 3:
                 error_1 = _b.sent();
@@ -82,35 +82,6 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                 console.error(error_1);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
-        }
-    });
-}); };
-exports.getUserId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var email, userDB, userId, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                email = req.body.email;
-                return [4 /*yield*/, usersModel_1["default"].findOne({ email: email })];
-            case 1:
-                userDB = _a.sent();
-                if (!userDB)
-                    throw new Error("no user found");
-                userId = userDB._id.toString();
-                console.log(userId);
-                res.send(userId);
-                return [3 /*break*/, 3];
-            case 2:
-                error_2 = _a.sent();
-                if (error_2.code === 434) {
-                    res
-                        .status(204)
-                        .send({ ok: false, error: "no user found" });
-                }
-                console.error(error_2);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
         }
     });
 }); };

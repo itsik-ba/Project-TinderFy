@@ -16,5 +16,5 @@ exports.PrefferanceSchema = new mongoose_1.Schema({
     relationship: { require: true, type: String },
     religious: { require: true, type: String }
 });
-var PrefferanceModel = mongoose_1["default"].model("prefferance", exports.PrefferanceSchema);
+var PrefferanceModel = mongoose_1["default"].model("prefferances", exports.PrefferanceSchema);
 exports["default"] = PrefferanceModel;

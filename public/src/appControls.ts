@@ -108,7 +108,13 @@ function createMyPrefferance(ev:any) {
       },
       body: JSON.stringify(userPreffrance),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 409) {
+        throw new Error("preferrance already exists");
+      } else {
+        res.json();
+      }
+    })
       .then((data) => {
         console.log(data);
         console.log("signin lets go");

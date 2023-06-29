@@ -1,20 +1,5 @@
 import mongoose, { Schema } from "mongoose";
 
-export interface Prefferance {
-     userId: String,
-     minHeight:Number, 
-     maxHeight:Number, 
-     minAge:Number,
-     maxAge:Number,
-     bodyType:String,
-     gender:String,
-     kids:String,
-     smoking:String,
-     education:String,
-     relationship:String,
-     religious:String
-}
-
 export const PrefferanceSchema = new Schema({
     userId: {index:true, type:String, unique:true},
     minHeight: {require:true, type:Number},
@@ -31,7 +16,7 @@ export const PrefferanceSchema = new Schema({
 });
 
 
-  const PrefferanceModel = mongoose.model("prefferances", PrefferanceSchema)
+  const PrefferanceModel = mongoose.model("prefferances", PrefferanceSchema);
 
 
 export default PrefferanceModel;

@@ -61,7 +61,7 @@ function createMyPrefferance(ev) {
         var urlParams = new URLSearchParams(window.location.search);
         var email = urlParams.get('email');
         var minHeight = elms.minimumHeight.value;
-        var maxHeight = elms.minimumHeight.value;
+        var maxHeight = elms.maximumHeight.value;
         var minAge = elms.minimumAge.value;
         var maxAge = elms.maximumAge.value;
         var bodytype = elms.bodytype.value;
@@ -96,7 +96,14 @@ function createMyPrefferance(ev) {
             },
             body: JSON.stringify(userPreffrance)
         })
-            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            if (res.status === 409) {
+                throw new Error("preferrance already exists");
+            }
+            else {
+                res.json();
+            }
+        })
             .then(function (data) {
             console.log(data);
             console.log("signin lets go");

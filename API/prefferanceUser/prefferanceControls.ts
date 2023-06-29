@@ -1,4 +1,4 @@
-import PrefferanceModel from "../prefferanceUser/prefferanceModel";
+import PrefferanceModel from "./prefferanceModel";
 import UserModel from "../users/usersModel";
 
 export const addNewuserPrefferance = async (req: any, res: any) => {
@@ -38,7 +38,7 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
       relationship,
       religious
     });
-    console.log("prefferance added");  
+    console.log(userPreffer,"prefferance added");  
     res.status(201).send({ ok: true })
   } catch (error) {
     if ((error as { code: number }).code === 11000) {
