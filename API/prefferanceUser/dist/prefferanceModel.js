@@ -2,6 +2,7 @@
 exports.__esModule = true;
 exports.PrefferanceSchema = void 0;
 var mongoose_1 = require("mongoose");
+;
 exports.PrefferanceSchema = new mongoose_1.Schema({
     userId: { index: true, type: String, unique: true },
     minHeight: { require: true, type: Number },
