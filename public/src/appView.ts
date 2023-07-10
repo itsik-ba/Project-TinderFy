@@ -40,10 +40,11 @@ function creatProfile() {
             <input class="inputRadio" type="radio" name="bodytype" value="lean">lean body structure
           <br>
 
-            <label class="label" for="kids">do you have kids:</label>
+            <label class="label" for="kids">do you want kids:</label>
             <br>
             <input class="inputRadio" type="radio" name="kids" value="yes">yes
-            <input class="inputRadio" type="radio" name="kids" value="no">no kids
+            <input class="inputRadio" type="radio" name="kids" value="not now">not now
+            <input class="inputRadio" type="radio" name="kids" value="never">never
             <br>
 
             <label class="label" for="smoking">are you smoking:</label>

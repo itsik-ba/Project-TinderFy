@@ -49,3 +49,14 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
     console.error(error);
   }
 }
+
+export const prefferanceUserCard = async (req: any, res: any) => {
+  try {
+    const { userId } = req.body
+    const prefferanceCard = await PrefferanceModel.find({ userId })
+    res.status(200).send({prefferanceCard})
+    console.log(prefferanceCard)
+  } catch (error) {
+    console.error(error)
+  }
+};

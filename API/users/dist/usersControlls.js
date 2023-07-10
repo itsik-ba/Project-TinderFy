@@ -110,16 +110,12 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 1:
                 users = _a.sent();
-                console.log(users);
-                res.status(200).json({
-                    status: "ok",
-                    results: users.length,
-                    data: { data: users }
-                });
+                res.send({ users: users });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _a.sent();
                 console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

@@ -6,7 +6,7 @@ function createMyCard(event) {
         var gender = event.target.elements.gender.value;
         var location = event.target.elements.location.value;
         var height = event.target.elements.height.value;
-        var bodytype = event.target.elements.bodytype.value;
+        var bodyType = event.target.elements.bodyType.value;
         var kids = event.target.elements.kids.value;
         var smoking = event.target.elements.smoking.value;
         var education = event.target.elements.education.value;
@@ -21,7 +21,7 @@ function createMyCard(event) {
             gender: gender,
             location: location,
             height: height,
-            bodytype: bodytype,
+            bodyType: bodyType,
             kids: kids,
             smoking: smoking,
             education: education,
@@ -64,7 +64,7 @@ function createMyPrefferance(ev) {
         var maxHeight = elms.maximumHeight.value;
         var minAge = elms.minimumAge.value;
         var maxAge = elms.maximumAge.value;
-        var bodytype = elms.bodytype.value;
+        var bodyType = elms.bodytype.value;
         var gender = elms.gender.value;
         var kids = elms.kids.value;
         var smoking = elms.smoking.value;
@@ -76,7 +76,7 @@ function createMyPrefferance(ev) {
             maxHeight: maxHeight,
             minAge: minAge,
             maxAge: maxAge,
-            bodytype: bodytype,
+            bodyType: bodyType,
             gender: gender,
             kids: kids,
             smoking: smoking,

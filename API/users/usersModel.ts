@@ -1,5 +1,28 @@
 import mongoose, { Schema } from "mongoose"
 
+export interface User {
+    // regester
+    name:String ,
+    password: String ,
+    email: String,
+
+    // usercard
+    role: String,
+    subscribed:Boolean,
+    age: Number,
+    gender: String,
+    location: String,
+    height: Number,
+    bodyType: String,
+    kids: String,
+    smoking: String,
+    education: String,
+    job: String,
+    relationship: String,
+    info: String,
+    religious: String
+}
+
 export const UserSchema = new Schema({
     // rigester
     name: { require: [true, "user must enter"], type: String },

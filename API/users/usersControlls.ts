@@ -46,18 +46,14 @@ export const userLogin = async (req: any, res: any) => {
   }
 }
 
-export const getAllUsers = async (req: any, res: any) => {
+export const getAllUsers = async (req:any, res:any) => {
   try {
+    const users = await UserModel.find({});
 
-    const users = await UserModel.find({})
-    console.log(users)
-    res.status(200).json({
-      status: "ok",
-      results: users.length,
-      data: { data: users }
-    })
-  } catch (error) {
-    console.error(error)
+    res.send({ users });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
   }
 }
 

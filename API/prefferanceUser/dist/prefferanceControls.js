@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addNewuserPrefferance = void 0;
+exports.prefferanceUserCard = exports.addNewuserPrefferance = void 0;
 var prefferanceModel_1 = require("./prefferanceModel");
 var usersModel_1 = require("../users/usersModel");
 exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -82,6 +82,27 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                 console.error(error_1);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.prefferanceUserCard = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, prefferanceCard, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                userId = req.body.userId;
+                return [4 /*yield*/, prefferanceModel_1["default"].find({ userId: userId })];
+            case 1:
+                prefferanceCard = _a.sent();
+                res.status(200).send({ prefferanceCard: prefferanceCard });
+                console.log(prefferanceCard);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
