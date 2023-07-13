@@ -8,7 +8,6 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
         maxHeight,
         minAge,
         maxAge,
-        bodyType,
         gender,
         kids,
         smoking,
@@ -30,7 +29,6 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
       maxHeight,
       minAge,
       maxAge,
-      bodyType,
       gender,
       kids,
       smoking,
@@ -52,10 +50,10 @@ export const addNewuserPrefferance = async (req: any, res: any) => {
 
 export const prefferanceUserCard = async (req: any, res: any) => {
   try {
-    const { userId } = req.body
-    const prefferanceCard = await PrefferanceModel.find({ userId })
-    res.status(200).send({prefferanceCard})
-    console.log(prefferanceCard)
+    const { email } = req.body
+    const userPrefferance = await PrefferanceModel.findOne({email});
+    if (!userPrefferance)  throw new Error("no prefferance to this user");
+    res.status(200).send({ userPrefferance })
   } catch (error) {
     console.error(error)
   }

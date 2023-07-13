@@ -10,7 +10,7 @@ import{
 
 router
 .post("/addPrefferance", addNewuserPrefferance)
-.get("/get-user-prefferance", prefferanceUserCard)
+.post("/get-user-prefferance", prefferanceUserCard)
 
 
 export default router;

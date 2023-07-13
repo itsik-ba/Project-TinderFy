@@ -9,7 +9,6 @@ exports.PrefferanceSchema = new mongoose_1.Schema({
     maxHeight: { require: true, type: Number },
     minAge: { require: true, type: Number },
     maxAge: { require: true, type: Number },
-    bodyType: { require: true, type: String },
     gender: { require: true, type: String },
     kids: { require: true, type: String },
     smoking: { require: true, type: String },

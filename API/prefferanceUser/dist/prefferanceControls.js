@@ -40,12 +40,12 @@ exports.prefferanceUserCard = exports.addNewuserPrefferance = void 0;
 var prefferanceModel_1 = require("./prefferanceModel");
 var usersModel_1 = require("../users/usersModel");
 exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, minHeight, maxHeight, minAge, maxAge, bodyType, gender, kids, smoking, education, relationship, religious, email, userDB, userId, userPreffer, error_1;
+    var _a, minHeight, maxHeight, minAge, maxAge, gender, kids, smoking, education, relationship, religious, email, userDB, userId, userPreffer, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 3, , 4]);
-                _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, bodyType = _a.bodyType, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious, email = _a.email;
+                _a = req.body, minHeight = _a.minHeight, maxHeight = _a.maxHeight, minAge = _a.minAge, maxAge = _a.maxAge, gender = _a.gender, kids = _a.kids, smoking = _a.smoking, education = _a.education, relationship = _a.relationship, religious = _a.religious, email = _a.email;
                 return [4 /*yield*/, usersModel_1["default"].findOne({ email: email })];
             case 1:
                 userDB = _b.sent();
@@ -59,7 +59,6 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
                         maxHeight: maxHeight,
                         minAge: minAge,
                         maxAge: maxAge,
-                        bodyType: bodyType,
                         gender: gender,
                         kids: kids,
                         smoking: smoking,
@@ -86,17 +85,18 @@ exports.addNewuserPrefferance = function (req, res) { return __awaiter(void 0, v
     });
 }); };
 exports.prefferanceUserCard = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, prefferanceCard, error_2;
+    var email, userPrefferance, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                userId = req.body.userId;
-                return [4 /*yield*/, prefferanceModel_1["default"].find({ userId: userId })];
+                email = req.body.email;
+                return [4 /*yield*/, prefferanceModel_1["default"].findOne({ email: email })];
             case 1:
-                prefferanceCard = _a.sent();
-                res.status(200).send({ prefferanceCard: prefferanceCard });
-                console.log(prefferanceCard);
+                userPrefferance = _a.sent();
+                if (!userPrefferance)
+                    throw new Error("no prefferance to this user");
+                res.status(200).send({ userPrefferance: userPrefferance });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();

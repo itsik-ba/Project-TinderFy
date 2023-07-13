@@ -14,7 +14,6 @@ exports.UserSchema = new mongoose_1.Schema({
     gender: { type: String },
     location: { type: String },
     height: { type: Number },
-    bodyType: { type: String },
     kids: { type: String },
     smoking: { type: String },
     education: { type: String },

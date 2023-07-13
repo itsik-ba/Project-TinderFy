@@ -33,13 +33,6 @@ function creatProfile() {
             <input class="input" type="number" name="height">
             <br>
 
-            <label class="label" for="bodytype">what is your bodyType:</label>
-            <br>
-            <input class="inputRadio" type="radio" name="bodytype" value="full">Full body structure
-            <input class="inputRadio" type="radio" name="bodytype" value="average">Average body type
-            <input class="inputRadio" type="radio" name="bodytype" value="lean">lean body structure
-          <br>
-
             <label class="label" for="kids">do you want kids:</label>
             <br>
             <input class="inputRadio" type="radio" name="kids" value="yes">yes
@@ -56,7 +49,7 @@ function creatProfile() {
             <label class="label" for="education">Education:</label>
           <br>
           <input class="inputRadio" type="radio" name="education" value="high school">high school
-          <input class="inputRadio" type="radio" name="education" value="University">University 
+          <input class="inputRadio" type="radio" name="education" value="university">University 
           <input class="inputRadio" type="radio" name="education" value="didnt study">didnt study
           <br>
 
@@ -133,14 +126,6 @@ function myPreferences() {
           <br>
          <input class="input" type="number" name="maximumAge">  
          <br>
-
-          <label class="label" for="bodytype">prefferd body:</label>
-          <br>
-          <input class="inputRadio" type="radio" name="bodytype" value="full">Full body structure
-          <input class="inputRadio" type="radio" name="bodytype" value="average">Average body type
-          <input class="inputRadio" type="radio" name="bodytype" value="lean">lean body structure
-          <input class="inputRadio" type="radio" name="bodytype" value="all">all
-          <br>
 
           <label class="label" for="kids">intrested in kids:</label>
           <br>

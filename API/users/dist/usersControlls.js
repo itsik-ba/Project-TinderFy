@@ -122,13 +122,13 @@ exports.getAllUsers = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.updateDetail = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious, email, users, error_4;
+    var _a, age, gender, location, height, kids, smoking, education, job, relationship, info, religious, email, users, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, age = _a.age, gender = _a.gender, location = _a.location, height = _a.height, bodyType = _a.bodyType, kids = _a.kids, smoking = _a.smoking, education = _a.education, job = _a.job, relationship = _a.relationship, info = _a.info, religious = _a.religious, email = _a.email;
-                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ email: email }, { age: age, gender: gender, location: location, height: height, bodyType: bodyType, kids: kids, smoking: smoking, education: education, job: job, relationship: relationship, info: info, religious: religious })];
+                _a = req.body, age = _a.age, gender = _a.gender, location = _a.location, height = _a.height, kids = _a.kids, smoking = _a.smoking, education = _a.education, job = _a.job, relationship = _a.relationship, info = _a.info, religious = _a.religious, email = _a.email;
+                return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ email: email }, { age: age, gender: gender, location: location, height: height, kids: kids, smoking: smoking, education: education, job: job, relationship: relationship, info: info, religious: religious })];
             case 1:
                 users = _b.sent();
                 res.status(200).json({

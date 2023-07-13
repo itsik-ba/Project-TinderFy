@@ -60,8 +60,8 @@ export const getAllUsers = async (req:any, res:any) => {
 
 export const updateDetail = async (req: any, res: any) => {
   try {
-    const { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious, email } = req.body
-    const users = await UserModel.findOneAndUpdate({ email }, { age, gender, location, height, bodyType, kids, smoking, education, job, relationship, info, religious })
+    const { age, gender, location, height, kids, smoking, education, job, relationship, info, religious, email } = req.body
+    const users = await UserModel.findOneAndUpdate({ email }, { age, gender, location, height, kids, smoking, education, job, relationship, info, religious })
 
     res.status(200).json({
       status: "ok"
