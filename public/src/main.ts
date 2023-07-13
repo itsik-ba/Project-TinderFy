@@ -53,7 +53,8 @@ function userProfileData() {
 
   </div>
   
-  <div class="usersCard"></div>`;
+  <div class="usersCard">
+  </div>`;
 
     const body = document.querySelector("body") as HTMLBodyElement;
     body.innerHTML = html;
@@ -89,30 +90,14 @@ function getUsers(userEmail:string) {
 function renderUsers(users: Array<User>,userEmail:string) {
   try {
     if (!users) throw new Error("No users");
-    const html = users
-      .map((user) => {
+    const usersCard = document.querySelector(".usersCard");
+    if (!usersCard) throw new Error("coundnt find users ecard on DOM");
+    users.map((user) => {
         if (
           user.email != userEmail
         )
-        renderUser(user, userEmail);
-      })
-      .join(" ");
-    const usersCard = document.querySelector(".usersCard");
-    if (!usersCard) throw new Error("coundnt find users ecard on DOM");
-    usersCard.innerHTML = html;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderUser(user: User, userEmail:string) {
-  try {
-    const matchingPercentage=getPrefferance(user,userEmail);
-    console.log(matchingPercentage);
-    if (matchingPercentage!=undefined && matchingPercentage>=10)
-      return `<div class="userCard">
+        usersCard.innerHTML +=getPrefferance(user,userEmail)+`<div class="userCard">
                 <h3>Name:${user.name}</h3>
-                <h4>Is a match?:match of ${matchingPercentage}%</h4>
                 <p>Height: ${user.height}</p>
                 <p>Age: ${user.age}</p>
                 <p>Location: ${user.location}</p>
@@ -122,18 +107,40 @@ function renderUser(user: User, userEmail:string) {
                 <p>Education: ${user.education}</p>
                 <p>Religious level: ${user.religious}</p>
                 <p>More about me: ${user.info}</p>
+                <br>
               </div>`;
-     else return ''; 
+      })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderUser(user: User, userEmail:string) {
+  try {
+    
+return `<div class="userCard">
+                <h3>Name:${user.name}</h3>
+                <p>Height: ${user.height}</p>
+                <p>Age: ${user.age}</p>
+                <p>Location: ${user.location}</p>
+                <p>Job: ${user.job}</p>
+                <p>Smoking: ${user.smoking}</p>
+                <p>Kids: ${user.kids}</p>
+                <p>Education: ${user.education}</p>
+                <p>Religious level: ${user.religious}</p>
+                <p>More about me: ${user.info}</p>
+                <br>
+              </div>`;
   } catch (error) {
     console.error(error);
     return "";
   }
+}
 
    
 
-function getPrefferance(user:User, userEmail:string):number{
+function getPrefferance(user:User, userEmail:string){
   try {
-    var isAMatch=1;
     fetch("/api/prefferanceUser/get-user-prefferance",
     {
       method: "POST",
@@ -146,52 +153,59 @@ function getPrefferance(user:User, userEmail:string):number{
       .then((res) => res.json())
       .then((data) => {
         if (!data) throw new Error("coundnt find prefferance for this user");
-      isAMatch= matchingPercent(data["userPrefferance"],user);
-      });
-    return isAMatch;
+        matchingPercent(data["userPrefferance"],user);
+      })
+    ;
+ 
   } catch (error) {
     console.error(error);
-    return 1;
   }
+}
 
-
-function matchingPercent(data:any, user:User):number {
+function matchingPercent(data:any, user:User) {
 
   try {
       
       var percentOfMatching:number =10;
-
-      if (user.gender!= data.gender){
+      
+      const usersCard = document.querySelector(".usersCard");
+      if (!usersCard) 
+      throw new Error("coundnt find users ecard on DOM");
+      else {
+        if (user.gender!= data.gender){
         percentOfMatching=1;
         console.log(percentOfMatching)
-        return percentOfMatching;
+        usersCard.innerHTML += " ";
       }
-          
+       else
       if( user.relationship != data.relationship) {
         percentOfMatching=1;
         console.log(percentOfMatching)
-        return percentOfMatching;
-      }
+        usersCard.innerHTML += " ";
+      } else {
+          
         if ((user.height >= data.minHeight) && (user.height<= data.maxHeight))
-          percentOfMatching+=10;
-        if ((user.age >= data.minAge) && (user.age <= data.maxAge))
-          percentOfMatching= percentOfMatching +10;
-        if (user.kids == data.kids)
-          percentOfMatching= percentOfMatching +10;  
-        if ((user.smoking == data.smoking) || (data.smoking=="sometime"))
-          percentOfMatching= percentOfMatching +10;
-        if (user.education == data.education)
-          percentOfMatching= percentOfMatching +10;
-        if (user.religious == data.religious)
-          percentOfMatching= percentOfMatching +10;  
-         console.log(percentOfMatching)
-        return percentOfMatching;
-    
+        percentOfMatching+=10;
+      if ((user.age >= data.minAge) && (user.age <= data.maxAge))
+        percentOfMatching= percentOfMatching +10;
+      if (user.kids == data.kids)
+        percentOfMatching= percentOfMatching +10;  
+      if ((user.smoking == data.smoking) || (data.smoking=="sometime"))
+        percentOfMatching= percentOfMatching +10;
+      if (user.education == data.education)
+        percentOfMatching= percentOfMatching +10;
+      if (user.religious == data.religious)
+        percentOfMatching= percentOfMatching +10;  
+       console.log(percentOfMatching)
+      
+       usersCard.innerHTML += `<h4> Is a match? match of ${percentOfMatching} </h4>`;
+  
+      }
+      }  
+      
   } catch (error) {
     console.error(error);
-    return -1;
   }
   
-  } 
 }
-}
+
