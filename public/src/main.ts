@@ -95,8 +95,8 @@ function renderUsers(users: Array<User>,userEmail:string) {
     users.map((user) => {
         if (
           user.email != userEmail
-        )
-        usersCard.innerHTML +=getPrefferance(user,userEmail)+`<div class="userCard">
+        ) getPrefferance(user,userEmail)
+        /*usersCard.innerHTML +=getPrefferance(user,userEmail)+`<div class="userCard">
                 <h3>Name:${user.name}</h3>
                 <p>Height: ${user.height}</p>
                 <p>Age: ${user.age}</p>
@@ -108,13 +108,13 @@ function renderUsers(users: Array<User>,userEmail:string) {
                 <p>Religious level: ${user.religious}</p>
                 <p>More about me: ${user.info}</p>
                 <br>
-              </div>`;
+              </div>`*/
       })
   } catch (error) {
     console.error(error);
   }
 }
-
+/*
 function renderUser(user: User, userEmail:string) {
   try {
     
@@ -137,7 +137,7 @@ return `<div class="userCard">
   }
 }
 
-   
+ */  
 
 function getPrefferance(user:User, userEmail:string){
   try {
@@ -156,7 +156,6 @@ function getPrefferance(user:User, userEmail:string){
         matchingPercent(data["userPrefferance"],user);
       })
     ;
- 
   } catch (error) {
     console.error(error);
   }
@@ -171,39 +170,43 @@ function matchingPercent(data:any, user:User) {
       const usersCard = document.querySelector(".usersCard");
       if (!usersCard) 
       throw new Error("coundnt find users ecard on DOM");
-      else {
-        if (user.gender!= data.gender){
+      if ((user.gender!= data.gender) || (user.relationship != data.relationship))
         percentOfMatching=1;
-        console.log(percentOfMatching)
-        usersCard.innerHTML += " ";
-      }
-       else
-      if( user.relationship != data.relationship) {
-        percentOfMatching=1;
-        console.log(percentOfMatching)
-        usersCard.innerHTML += " ";
-      } else {
-          
-        if ((user.height >= data.minHeight) && (user.height<= data.maxHeight))
-        percentOfMatching+=10;
+      if(data.gender=="all")
+        percentOfMatching=10;
+      if ((user.height >= data.minHeight) && (user.height<= data.maxHeight))
+        percentOfMatching+=15;
       if ((user.age >= data.minAge) && (user.age <= data.maxAge))
-        percentOfMatching= percentOfMatching +10;
+        percentOfMatching+=15;
       if (user.kids == data.kids)
-        percentOfMatching= percentOfMatching +10;  
+        percentOfMatching+=15;  
       if ((user.smoking == data.smoking) || (data.smoking=="sometime"))
-        percentOfMatching= percentOfMatching +10;
+        percentOfMatching+=10;
       if (user.education == data.education)
-        percentOfMatching= percentOfMatching +10;
+        percentOfMatching+=10;
       if (user.religious == data.religious)
-        percentOfMatching= percentOfMatching +10;  
-       console.log(percentOfMatching)
-      
-       usersCard.innerHTML += `<h4> Is a match? match of ${percentOfMatching} </h4>`;
+        percentOfMatching+=15; 
+      if (user.job == data.job)
+        percentOfMatching+=10; 
+       
+        if ((percentOfMatching%10==0) || (percentOfMatching%10==5))
+       usersCard.innerHTML += ` <h4> Is a match? match of ${percentOfMatching} </h4>
+                                <div class="userCard">
+                                  <h3>Name:${user.name}</h3>
+                                  <p>Height: ${user.height}</p>
+                                  <p>Age: ${user.age}</p>
+                                  <p>Location: ${user.location}</p>
+                                  <p>Job: ${user.job}</p>
+                                  <p>Smoking: ${user.smoking}</p>
+                                  <p>Kids: ${user.kids}</p>
+                                  <p>Education: ${user.education}</p>
+                                  <p>Religious level: ${user.religious}</p>
+                                  <p>More about me: ${user.info}</p>
+                                  <br>
+                                </div>`;
   
-      }
-      }  
-      
-  } catch (error) {
+  }
+    catch (error) {
     console.error(error);
   }
   
