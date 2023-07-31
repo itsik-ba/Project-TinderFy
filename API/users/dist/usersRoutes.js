@@ -9,4 +9,3 @@ router
     .post("/login", usersControlls_1.userLogin)
     .put("/update", usersControlls_1.updateDetail)
     .post("/main", usersControlls_1.cardUser);
-exports["default"] = router;
