@@ -19,3 +19,4 @@ router
 .put("/update", updateDetail)
 .post("/main", cardUser)
 
+export default router;
